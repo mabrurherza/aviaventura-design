@@ -1,9 +1,55 @@
-<nav class="flex items-center justify-between px-5 py-6 container mx-auto">
-  <ul class="flex items-center gap-8 text-xl text-slate-800">
-  <a href="/"><img src="/img/logo.svg" alt="aviaventura logo"></a>
+<nav class="flex items-center justify-between fixed top-3 px-3 sm:px-5 py-6 z-30 bg-white rounded-3xl container inset-x-0 mx-auto">
+  <a href="/"><img src="/img/logo.svg" class="w-40 sm:w-48" alt="aviaventura logo"></a>
+  <ul class="hidden lg:flex items-center gap-8 text-xl text-slate-800">
+    <li><a class="hover:text-sky-600" href="/about">About</a></li>
+    <li><a class="hover:text-sky-600" href="/contact">Contact</a></li>
+    <li><a class="hover:text-sky-600" href="/news">News</a></li>
+    <li class="bg-sky-600 text-white rounded-full px-6 py-2"><a href="/partner">Partner with us</a></li>
+  </ul>
+  <div class="flex lg:hidden flex-col justify-center gap-1.5 cursor-pointer h-full" id="hamburger">
+    <div class="w-10 h-1 bg-sky-600 duration-300"></div>
+    <div class="w-10 h-1 bg-sky-600 duration-300"></div>
+    <div class="w-10 h-1 bg-sky-600 duration-300"></div>
+  </div>
+</nav>
+
+<!-- TODO: reuse the ul above? -->
+<div class="opacity-0 invisible translate-x-full lg:hidden duration-500 fixed z-30 top-36 bg-white py-10 px-7 rounded-3xl inset-x-0 mx-auto container" id="hamburgerList">
+  <ul class="flex flex-col gap-8 text-center text-slate-800 text-xl duration-1000">
     <li><a href="/about">About</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/news">News</a></li>
-    <li class="bg-sky-600 text-white rounded-full px-6 py-2"><a href="/partner">Partner with us</a></li>
+    <li class="bg-sky-600 text-white rounded-full px-6 py-4"><a href="/partner">Partner with us</a></li>
   </ul>
-</nav>
+</div>
+
+<div class="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm pointer-events-none opacity-0 z-20 duration-300 motion-reduce:duration-0" id="hamburgerOverlay"></div>
+
+<script>
+  // hamburger
+  const hamburger = document.querySelector("#hamburger");
+  const hamburgerBar = document.querySelectorAll("#hamburger div");
+  const hamburgerList = document.querySelector("#hamburgerList");
+  const hamburgerOverlay = document.querySelector("#hamburgerOverlay");
+
+  hamburger?.addEventListener("click", () => {
+    // rotate hamburger bar
+    hamburgerBar[0].classList.toggle("rotate-45");
+		hamburgerBar[0].classList.toggle("translate-y-[160%]");
+		hamburgerBar[1].classList.toggle("hidden");
+		hamburgerBar[2].classList.toggle("-rotate-45");
+		hamburgerBar[2].classList.toggle("-translate-y-full");
+
+    // toggle hamburger list (menu) on mobile
+		hamburgerList?.classList.toggle("opacity-0");
+		hamburgerList?.classList.toggle("invisible");
+		hamburgerList?.classList.toggle("translate-x-full");
+
+    // toggle hamburger overlay
+    hamburgerOverlay?.classList.toggle("opacity-0");
+    hamburgerOverlay?.classList.toggle("pointer-events-none");
+
+    // toggle scroll
+    document.body.classList.toggle("overflow-hidden")
+  })
+</script>
