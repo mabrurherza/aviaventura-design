@@ -26,6 +26,13 @@
 <div class="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm pointer-events-none opacity-0 z-20 duration-300 motion-reduce:duration-0" id="hamburgerOverlay"></div>
 
 <script>
+  // make the link blue when we visit the path
+  const navLinks = document.querySelectorAll("li a") as NodeListOf<HTMLAnchorElement>;
+
+  navLinks.forEach((link) => {
+    if(link.pathname == window.location.pathname) link.classList.add("text-sky-600");
+  })
+
   // hamburger
   const hamburger = document.querySelector("#hamburger");
   const hamburgerBar = document.querySelectorAll("#hamburger div");
