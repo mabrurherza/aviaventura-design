@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         sans: ["Onest", "Arial", "Helvetica", "sans-serif"],
       },
+      colors: {
+        brand: "#10054c",
+      },
     },
   },
   plugins: [],
