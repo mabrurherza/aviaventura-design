@@ -17,6 +17,10 @@ export default {
           xl: "1280px",
           "2xl": "1440px",
         },
+        padding: {
+          DEFAULT: "1.25rem",
+          sm: "3rem",
+        },
       },
     },
   },
