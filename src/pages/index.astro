@@ -58,4 +58,56 @@ import Navbar from "../components/Navbar.astro"
       </div>
     </div>
   </section>
+  <section class="container mx-auto grid grid-cols-1 grid-rows-[repeat(3,fit-content)] lg:grid-cols-2 lg:grid-rows-[repeat(2,fit-content)] gap-10 px-5 pt-40 sm:px-12 lg:py-56">
+    <div>
+      <p class="uppercase inline-flex gap-2 text-xl font-bold text-sky-600 mb-3">
+        <img src="/img/headerBullet.svg" alt="Header Bullet" class="h-[1em]">
+        What we deliver
+      </p>
+      <h2 class="font-light text-3xl sm:text-4xl xl:text-5xl leading-tight text-brand">Full-Fledged Marketing and Sales Activities</h2>
+    </div>
+    <div class="flex justify-end items-end">
+      <a href="/partner" class="w-full lg:w-fit inline-flex justify-between items-center gap-6 rounded-full bg-sky-100 px-6 py-3 sm:text-xl">
+        Ask for custom services
+        <div class="rounded-full bg-sky-600 p-3 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </div>
+      </a>
+    </div>
+    <div class="flex flex-col lg:flex-row gap-10 row-start-2 lg:col-span-2">
+      <ul class="flex-1 text-base sm:text-lg flex flex-col divide-y-2">
+        <li class="flex items-center gap-2 text-xl text-sky-600 font-semibold">
+          <img src="/img/deliverList1.svg" alt="A plane with 2 person" class="w-11">
+          Passenger Airlines
+        </li>
+        <li class="py-4 gap-2 !border-t-0">Marketing and promotion</li>
+        <li class="py-4 gap-2">Ticket sales and distribution</li>
+        <li class="py-4 gap-2">Market analysis & reporting</li>
+        <li class="py-4 gap-2">Customer service and support</li>
+        <li class="py-4 gap-2">Revenue management</li>
+      </ul>
+      <ul class="flex-1 text-base sm:text-lg flex flex-col divide-y-2">
+        <li class="flex items-center gap-2 text-xl text-sky-600 font-semibold">
+          <img src="/img/deliverList2.svg" alt="A plane with 3 boxes" class="w-11">
+          Cargo Airlines
+        </li>
+        <li class="py-4 gap-2 !border-t-0">Cargo Sales & Distribution</li>
+        <li class="py-4 gap-2">Documentation & Compliance</li>
+        <li class="py-4 gap-2">Cargo handling & storage</li>
+        <li class="py-4 gap-2">Tracking & monitoring</li>
+        <li class="py-4 gap-2">Performance evaluation</li>
+      </ul>
+      <ul class="flex-1 text-base sm:text-lg flex flex-col divide-y-2">
+        <li class="flex gap-2 text-xl text-sky-600 font-semibold items-center">
+          <img src="/img/deliverList3.svg" alt="A person holding a ticket" class="w-11">
+          B2C Sales Operation
+        </li>
+        <li class="py-4 flex gap-2 !border-t-0">First Service</li>
+        <li class="py-4 flex gap-2">Second Service</li>
+        <li class="py-4 flex gap-2">Third Service</li>
+      </ul>
+    </div>
+  </section>
 </Layout>
