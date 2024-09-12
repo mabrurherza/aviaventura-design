@@ -1,31 +1,26 @@
 ---
-const { title, desc, canonical, ogImage, url } = Astro.props;
+const { headcontent = {} } = Astro.props;
+import Basehead from "../components/Basehead.astro";
+import "../styles/global.css";
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <meta name="description" content={desc}>
-    <link rel="canonical" href={canonical}>
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="alternate icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10054c" />
-    <meta name="theme-color" content="#10054c" />
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={desc}>
-    <meta property="og:url" content={url}>
-    <meta property="og:image" content={ogImage}>
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Aviaventura">
+    <Basehead
+      title={headcontent.title}
+      description={headcontent.description}
+      keywords={headcontent.keywords}
+      canocial={headcontent.canonical}
+      ogImage={headcontent.ogImage}
+      url={headcontent.url}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
   </head>
-  <body class="font-light">
+  <body>
     <slot>
   </body>
 </html>
