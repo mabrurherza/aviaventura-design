@@ -185,5 +185,27 @@ import Navbar from "../components/Navbar.astro"
       </div>
     </div>
   </section>
-
+  <section class="container mx-auto py-32">
+    <h2 class="mb-12 text-5xl text-brand">Newsfeed</h2>
+    <div class="flex flex-col items-end gap-5">
+      <div class="flex items-end gap-12">
+        <div class="flex-1">
+          <img src="https://via.placeholder.com/1080x720" alt="Placeholder" class="rounded-xl">
+        </div>
+        <div class="flex-1 grow-[2] border-b pb-12">
+          <h3 class="text-3xl hover:text-sky-600"><a href="#">Agent Gathering at Hard Rock Cafe Jakarta</a></h3>
+          <p class="mb-12 mt-5 text-lg">PT Aviaventura as GSA Ethiopian Airlines in Indonesia held a Travel Agent Gathering which was located at the Hard Rock Café Jakarta.</p>
+          <a href="#" class="text-lg text-sky-600 underline">Read more</a>
+        </div>
+      </div>
+      <a href="/news" class="mt-12 inline-flex w-fit items-center gap-6 rounded-full bg-sky-100 px-6 py-3 text-xl">
+        See all news
+        <div class="size-fit rounded-full bg-sky-600 p-3 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </section>
 </Layout>
