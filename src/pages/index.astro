@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Navbar from "../components/Navbar.astro"
+import BtnPrimary from "../components/BtnPrimary.astro"
 ---
 
 <Layout>
@@ -10,14 +11,7 @@ import Navbar from "../components/Navbar.astro"
       <div class="flex flex-1 flex-col justify-center gap-10">
         <h1 class="bg-gradient-to-br from-brand to-sky-600 bg-clip-text text-4xl font-light text-transparent sm:text-5xl xl:text-6xl xl:leading-tight">We Provide Dedicated GSA Teams That Fuel Sales Growth</h1>
         <p class="text-base sm:text-xl">As we value exclusivity, for each airline we partner with, gets a dedicated team and focused on delivering personalized sales operations to achieve optimal growth in the Indonesian market.</p>
-        <a href="/partner" class="inline-flex w-fit items-center gap-6 rounded-full bg-white px-6 py-3 text-xl font-medium">
-          Partner with us now
-          <div class="size-fit rounded-full bg-sky-600 p-3 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </div>
-        </a>
+        <BtnPrimary link="#" text="Partner with us now" theme="white">
       </div>
       <div class="relative flex flex-1 items-center justify-center lg:justify-end">
         <img src="/img/heroCloud.png" alt="Cloud background" class="aspect-[2/3] h-44 w-full rounded-3xl object-cover sm:h-64 lg:h-auto lg:w-[320px] xl:w-[400px]">
@@ -67,14 +61,7 @@ import Navbar from "../components/Navbar.astro"
       <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">Full-Fledged Marketing and Sales Activities</h2>
     </div>
     <div class="flex items-end justify-end">
-      <a href="/partner" class="inline-flex w-full items-center justify-between gap-6 rounded-full bg-sky-100 px-6 py-3 sm:text-xl lg:w-fit">
-        Ask for custom services
-        <div class="rounded-full bg-sky-600 p-3 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </div>
-      </a>
+      <BtnPrimary link="#" text="Ask for custom services" theme="light">
     </div>
     <div class="row-start-2 flex flex-col gap-10 lg:col-span-2 lg:flex-row">
       <ul class="flex flex-1 flex-col divide-y-2">
@@ -173,15 +160,8 @@ import Navbar from "../components/Navbar.astro"
       </div>
       <div class="flex-1 p-5">
         <h3 class="text-2xl text-brand lg:text-3xl">Inaugural Flight ET 629</h3>
-        <a href="#" class="inline-flex w-full items-center justify-between gap-6 rounded-full bg-white px-6 py-3 text-xl lg:w-fit">
-          Read more
-          <div class="rounded-full bg-sky-600 p-3 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </div>
-        </a>
         <p class="mb-12 mt-5">Ethiopian Airlines, the largest Aviation Group in Africa and SKYTRAX certified Four Star Global Airline, is pleased to announce that it will launch thrice weekly flights to Jakarta, Indonesia start 21 July 2018.</p>
+        <BtnPrimary link="#" text="Read more" theme="white">
       </div>
     </div>
   </section>
@@ -198,28 +178,16 @@ import Navbar from "../components/Navbar.astro"
           <a href="#" class="text-lg text-sky-600 underline">Read more</a>
         </div>
       </div>
-      <a href="/news" class="mt-12 inline-flex w-fit items-center gap-6 rounded-full bg-sky-100 px-6 py-3 text-xl">
-        See all news
-        <div class="size-fit rounded-full bg-sky-600 p-3 text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </div>
-      </a>
+      <BtnPrimary link="/news" text="See all news" theme="light">
     </div>
   </section>
   <section class="max-w-[800px] px-5 mx-auto flex flex-col gap-12 text-center">
     <img src="/img/logoArrow.svg" alt="aviaventura arrow logo" class="w-32 sm:w-48 mx-auto">
     <h2 class="text-3xl sm:text-5xl text-brand">Be Our Partner</h2>
     <p class="text-lg">Since 2016, AVIAVENTURA has proudly served as a trusted GSA in Indonesia, managing operations for over eight airlines. Our commitment to personalized service and market expertise ensures that partnering with us means your airline will achieve sustained success in the Indonesian market.</p>
-    <a href="/partner" class="text-white mx-auto inline-flex w-fit items-center gap-6 rounded-full bg-sky-600 px-6 py-3 text-lg">
-      Partner with Us Today
-      <div class="size-fit rounded-full bg-white p-3 text-sky-600">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-        </svg>
-      </div>
-    </a>
+    <div class="mx-auto">
+      <BtnPrimary text="Partner with Us Today" theme="blue">
+    </div>
     <a href="/about" class="text-xl text-sky-600">Learn more about us</a>
   </section>
 </Layout>
