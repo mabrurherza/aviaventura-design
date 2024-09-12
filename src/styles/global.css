@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+p {
+  @apply text-base md:text-lg leading-relaxed;
+}
+
+body {
+  @apply font-light text-slate-800;
+}
+
+.text-display {
+  @apply text-4xl md:text-5xl xl:text-6xl font-extralight bg-gradient-to-br from-sky-600 to-brand bg-clip-text text-transparent;
+}
