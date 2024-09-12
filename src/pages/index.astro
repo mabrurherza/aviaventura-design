@@ -121,17 +121,17 @@ import Navbar from "../components/Navbar.astro"
     <div class="flex flex-1 flex-col gap-5 text-lg">
       <p>Our strong network of leading travel agents across Indonesia ensures broad market reach and effective distribution for our airline partners.</p>
       <p>Some of our well-established partnerships:</p>
-      <div class="grid grid-cols-2 lg:grid-cols-3 grid-rows-2 place-items-center gap-12">
+      <div class="grid grid-cols-2 grid-rows-2 place-items-center gap-12 lg:grid-cols-3">
         <img src="/img/partner1.png" alt="Bayu Buana Travel Services" class="grayscale">
         <img src="/img/partner2.png" alt="Traveloka" class="grayscale">
         <img src="/img/partner3.png" alt="tiket.com" class="grayscale">
         <img src="/img/partner4.png" alt="Trip.com" class="grayscale">
-        <p class="col-span-2 lg:col-span-1 size-full content-center rounded-xl bg-slate-100 py-12 text-center">and more...</p>
+        <p class="col-span-2 size-full content-center rounded-xl bg-slate-100 py-12 text-center lg:col-span-1">and more...</p>
       </div>
     </div>
   </section>
   <section class="pt-32">
-    <div class="container mx-auto flex items-end flex-col gap-10 lg:flex-row">
+    <div class="container mx-auto flex flex-col items-end gap-10 lg:flex-row">
       <div class="flex-1">
         <p class="mb-3 inline-flex gap-2 text-xl font-bold uppercase text-sky-600">
           <img src="/img/headerBullet.svg" alt="Header Bullet" class="h-[1em]">
@@ -141,39 +141,39 @@ import Navbar from "../components/Navbar.astro"
       </div>
       <p class="flex-1 text-lg">We organize targeted events to foster strong connections and support our airline partners’ marketing goals.</p>
     </div>
-    <div class="mt-24 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-16 justify-between px-4 lg:px-8 xl:px-16 text-white">
-      <div class="flex-1 flex relative flex-col justify-end gap-2 bg-[url('/img/event1.png')] aspect-square sm:aspect-[3/2] xl:aspect-[3/4] bg-cover p-5 rounded-2xl overflow-hidden">
-        <h3 class="text-3xl z-10">Tour & Travel Exhibitions</h3>
-        <p class="text-lg z-10">Showcasing our airline partners to key players in the travel industry.</p>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90% pointer-events-none"></div>
+    <div class="mt-24 grid grid-cols-1 justify-between gap-5 px-4 text-white lg:grid-cols-2 lg:gap-16 lg:px-8 xl:grid-cols-4 xl:px-16">
+      <div class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-[url('/img/event1.png')] bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]">
+        <h3 class="z-10 text-3xl">Tour & Travel Exhibitions</h3>
+        <p class="z-10 text-lg">Showcasing our airline partners to key players in the travel industry.</p>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"></div>
       </div>
-      <div class="flex-1 flex relative flex-col justify-end gap-2 bg-[url('/img/event2.png')] aspect-square sm:aspect-[3/2] xl:aspect-[3/4] bg-cover p-5 rounded-2xl overflow-hidden">
-        <h3 class="text-3xl z-10">Partner Workshops</h3>
-        <p class="text-lg z-10">Collaborative sessions aimed at optimizing sales strategies</p>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90% pointer-events-none"></div>
+      <div class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-[url('/img/event2.png')] bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]">
+        <h3 class="z-10 text-3xl">Partner Workshops</h3>
+        <p class="z-10 text-lg">Collaborative sessions aimed at optimizing sales strategies</p>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"></div>
       </div>
-      <div class="flex-1 flex relative flex-col justify-end gap-2 bg-[url('/img/event3.png')] aspect-square sm:aspect-[3/2] xl:aspect-[3/4] bg-cover p-5 rounded-2xl overflow-hidden">
-        <h3 class="text-3xl z-10">Exclusive Airlines Dinner</h3>
-        <p class="text-lg z-10">Intimate gatherings to discuss strategy and celebrate successes.</p>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90% pointer-events-none"></div>
+      <div class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-[url('/img/event3.png')] bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]">
+        <h3 class="z-10 text-3xl">Exclusive Airlines Dinner</h3>
+        <p class="z-10 text-lg">Intimate gatherings to discuss strategy and celebrate successes.</p>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"></div>
       </div>
-      <div class="flex-1 flex relative flex-col justify-end gap-2 bg-[url('/img/event4.png')] aspect-square sm:aspect-[3/2] xl:aspect-[3/4] bg-cover p-5 rounded-2xl overflow-hidden">
-        <h3 class="text-3xl z-10">Aviation Insights Seminar</h3>
-        <p class="text-lg z-10">This event fosters collaboration and equips our principals with the knowledge needed to thrive in the Indonesian market.</p>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90% pointer-events-none"></div>
+      <div class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-[url('/img/event4.png')] bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]">
+        <h3 class="z-10 text-3xl">Aviation Insights Seminar</h3>
+        <p class="z-10 text-lg">This event fosters collaboration and equips our principals with the knowledge needed to thrive in the Indonesian market.</p>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"></div>
       </div>
     </div>
   </section>
   <!-- TODO: use strapi to fetch, for now, just a dummy -->
   <section class="container mx-auto py-32">
-    <h2 class="text-5xl mb-12">Spotlight</h2>
-    <div class="flex flex-col lg:flex-row gap-5 bg-slate-100 rounded-3xl items-end">
+    <h2 class="mb-12 text-5xl">Spotlight</h2>
+    <div class="flex flex-col items-end gap-5 rounded-3xl bg-slate-100 lg:flex-row">
       <div class="flex-1 p-5">
         <img src="https://via.placeholder.com/1080x720" alt="Placeholder" class="rounded-3xl">
       </div>
       <div class="flex-1 p-5">
         <h3 class="text-2xl lg:text-3xl">Inaugural Flight ET 629</h3>
-        <p class="text-lg mt-5 mb-12">Ethiopian Airlines, the largest Aviation Group in Africa and SKYTRAX certified Four Star Global Airline, is pleased to announce that it will launch thrice weekly flights to Jakarta, Indonesia start 21 July 2018.</p>
+        <p class="mb-12 mt-5 text-lg">Ethiopian Airlines, the largest Aviation Group in Africa and SKYTRAX certified Four Star Global Airline, is pleased to announce that it will launch thrice weekly flights to Jakarta, Indonesia start 21 July 2018.</p>
         <a href="#" class="inline-flex w-full items-center justify-between gap-6 rounded-full bg-white px-6 py-3 text-xl lg:w-fit">
           Read more
           <div class="rounded-full bg-sky-600 p-3 text-white">
