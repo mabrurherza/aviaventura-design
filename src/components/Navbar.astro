@@ -1,4 +1,4 @@
-<nav class="fixed inset-x-0 top-0 z-30 bg-white/50 backdrop-blur-md">
+<nav class="fixed inset-x-0 top-0 z-30 bg-white/50 backdrop-blur-md duration-300 transition-colors">
   <div class="container mx-auto flex items-center justify-between py-7">
     <a href="/"><img src="/img/logo.svg" class="w-40 sm:w-48" alt="aviaventura logo"></a>
     <ul class="hidden items-center gap-8 text-xl lg:flex">
@@ -48,6 +48,7 @@
   const hamburger = document.querySelector("#hamburger");
   const hamburgerBar = document.querySelectorAll("#hamburger div");
   const hamburgerList = document.querySelector("#hamburgerList");
+  const nav = document.querySelector("nav");
 
   hamburger?.addEventListener("click", () => {
     // rotate hamburger bar
@@ -61,6 +62,11 @@
 		hamburgerList?.classList.toggle("opacity-0");
 		hamburgerList?.classList.toggle("invisible");
 		hamburgerList?.classList.toggle("translate-x-full");
+
+    // toggle backdrop blur when opening hamburger list (menu) on mobile
+    nav?.classList.toggle("backdrop-blur-md")
+    nav?.classList.toggle("bg-white/50")
+    nav?.classList.toggle("bg-white")
 
     // toggle scroll
     document.body.classList.toggle("overflow-hidden")
