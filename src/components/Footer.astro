@@ -1,4 +1,5 @@
 ---
+import BtnPrimary from "../components/BtnPrimary.astro"
 const currentYear = new Date().getFullYear();
 ---
 <footer class="relative mx-10 mb-20 flex flex-col gap-7 overflow-hidden rounded-3xl bg-white p-10 text-lg">
@@ -39,3 +40,12 @@ const currentYear = new Date().getFullYear();
   <hr class="border-slate-300">
   <small class="text-slate-500">&copy; {currentYear} PT AVIAVENTURA All right reserved</small>
 </footer>
+  <section class="max-w-[800px] py-20 sm:py-32 px-5 mx-auto flex flex-col gap-12 text-center">
+    <img src="/img/logoArrow.svg" alt="aviaventura arrow logo" class="w-32 sm:w-48 mx-auto">
+    <h2 class="text-3xl sm:text-5xl text-brand">Be Our Partner</h2>
+    <p class="text-lg">Since 2016, AVIAVENTURA has proudly served as a trusted GSA in Indonesia, managing operations for over eight airlines. Our commitment to personalized service and market expertise ensures that partnering with us means your airline will achieve sustained success in the Indonesian market.</p>
+    <div class="mx-auto">
+      <BtnPrimary text="Partner with Us Today" theme="blue">
+    </div>
+    <a href="/about" class="text-xl text-sky-600">Learn more about us</a>
+  </section>
