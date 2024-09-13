@@ -1,0 +1,41 @@
+---
+const currentYear = new Date().getFullYear();
+---
+<footer class="relative mx-10 mb-20 flex flex-col gap-7 overflow-hidden rounded-3xl bg-white p-10 text-lg">
+  <img src="/img/footerArrow.svg" alt="aviaventura footer arrow" class="absolute -left-44 -top-8 h-full opacity-15">
+  <div class="mb-40 flex items-start justify-between">
+    <img src="/img/logo.svg" alt="aviaventura logo" class="z-10 w-60">
+    <ul class="flex gap-20">
+      <li>
+        <ul class="space-y-2">
+          <li class="mb-4 font-normal text-slate-500">Contact</li>
+          <li><a class="transition-colors duration-300 hover:text-sky-600" href="mailto:info@aviaventura.com">info@aviaventura.com</a></li>
+          <li><a class="transition-colors duration-300 hover:text-sky-600" href="tel:+6212345678910">+62 1234-5678-910</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="space-y-2">
+          <li class="mb-4 font-normal text-slate-500">Company</li>
+          <li><a class="transition-colors duration-300 hover:text-sky-600" href="/about">About</a></li>
+          <li><a class="transition-colors duration-300 hover:text-sky-600" href="/career">Career</a></li>
+          <li><a class="transition-colors duration-300 hover:text-sky-600" href="/contact">Contact</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="space-y-2">
+          <li class="mb-4 font-normal text-slate-500">Media</li>
+          <li><a class="transition-colors duration-300 hover:text-sky-600" href="/newsfeed">Newsfeed</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="space-y-2">
+          <li class="mb-4 font-normal text-slate-500">Social</li>
+          <li><a class="transition-colors duration-300 hover:text-sky-600" href="https://linkedin.com/in/" target="_blank">LinkedIn</a></li>
+          <li><a class="transition-colors duration-300 hover:text-sky-600" href="https://instagram.com//" target="_blank">Instagram</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <hr class="border-slate-300">
+  <small class="text-slate-500">&copy; {currentYear} PT AVIAVENTURA All right reserved</small>
+</footer>
