@@ -11,5 +11,5 @@ body {
 }
 
 .text-display {
-  @apply text-4xl md:text-5xl xl:text-6xl font-extralight bg-gradient-to-br from-sky-600 to-brand bg-clip-text text-transparent;
+  @apply text-4xl md:text-5xl xl:text-6xl font-extralight bg-gradient-to-br from-sky-600 to-brand bg-clip-text text-transparent !leading-tight;
 }
