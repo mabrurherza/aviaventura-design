@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Navbar from "../components/Navbar.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<Layout>
+  <Navbar />
+  <main class="container mx-auto grid grid-cols-1 gap-y-24 pb-24 pt-40 lg:grid-cols-2 lg:pt-56">
+    <div>
+      <h1 class="text-display mb-12 text-5xl">Contact Us</h1>
+      <ul class="text-lg">
+        <li class="mb-3 text-2xl text-sky-600">Office</li>
+        <li>Mega Plaza 4th Floor</li>
+        <li>Jl. HR. Rasuna Said</li>
+        <li>East Jakarta</li>
+        <li>Indonesia</li>
+        <li>12940</li>
+      </ul>
+    </div>
+    <img src="/img/contactImg.png" alt="aviaventura buildings" class="rounded-2xl object-cover">
+    <ul class="grid gap-12 text-xl md:grid-flow-col lg:col-span-2">
+      <li>
+        <ul class="border-b pb-6 md:pb-12">
+          <li class="mb-3 text-2xl text-sky-600">Office</li>
+          <li><a href="mailto:info@aviaventura.com">info@aviaventura.com</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="border-b pb-6 md:pb-12">
+          <li class="mb-3 text-2xl text-sky-600">Call</li>
+          <li><a href="tel:+62123456789">+62 123456789</a></li>
+        </ul>
+      </li>
+      <li>
+        <ul class="border-b pb-6 md:pb-12">
+          <li class="mb-3 text-2xl text-sky-600">Message</li>
+          <li><a href="tel:+62123456789">+62 123456789</a></li>
+        </ul>
+      </li>
+    </ul>
+  </main>
+  <Footer />
+</Layout>
