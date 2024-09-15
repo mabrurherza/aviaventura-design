@@ -9,9 +9,9 @@
       <li class="rounded-full bg-sky-600 px-6 py-2 text-white transition-colors duration-300 hover:bg-sky-700"><a href="/partner">Partner with us</a></li>
     </ul>
     <div class="flex h-full cursor-pointer flex-col justify-center gap-1.5 lg:hidden" id="hamburger">
-      <div class="h-1 w-10 bg-sky-600 transition-colors duration-300"></div>
-      <div class="h-1 w-10 bg-sky-600 transition-colors duration-300"></div>
-      <div class="h-1 w-10 bg-sky-600 transition-colors duration-300"></div>
+      <div class="h-1 w-10 bg-sky-600 transition-transform duration-300"></div>
+      <div class="h-1 w-10 bg-sky-600 transition-transform duration-300"></div>
+      <div class="h-1 w-10 bg-sky-600 transition-transform duration-300"></div>
     </div>
   </div>
 </nav>
@@ -37,39 +37,39 @@
 </div>
 
 <script>
-  // make the link blue when we visit the path
-  const navLinks = document.querySelectorAll("nav li a, #hamburgerList li a") as NodeListOf<HTMLAnchorElement>;
+// make the link blue when we visit the path
+const navLinks = document.querySelectorAll("nav li a, #hamburgerList li a") as NodeListOf<HTMLAnchorElement>;
 
   navLinks.forEach((link) => {
     if(link.pathname == window.location.pathname) link.classList.add("text-sky-600");
   })
 
-  // hamburger
-  const hamburger = document.querySelector("#hamburger");
-  const hamburgerBar = document.querySelectorAll("#hamburger div");
-  const hamburgerList = document.querySelector("#hamburgerList");
-  const nav = document.querySelector("nav");
+// hamburger
+const hamburger = document.querySelector("#hamburger");
+const hamburgerBar = document.querySelectorAll("#hamburger div");
+const hamburgerList = document.querySelector("#hamburgerList");
+const nav = document.querySelector("nav");
 
-  hamburger?.addEventListener("click", () => {
-    // rotate hamburger bar
-    hamburgerBar[0].classList.toggle("rotate-45");
-		hamburgerBar[0].classList.toggle("translate-y-[160%]");
-		hamburgerBar[1].classList.toggle("hidden");
-		hamburgerBar[2].classList.toggle("-rotate-45");
-		hamburgerBar[2].classList.toggle("-translate-y-full");
+hamburger?.addEventListener("click", () => {
+  // rotate hamburger bar
+  hamburgerBar[0].classList.toggle("rotate-45");
+  hamburgerBar[0].classList.toggle("translate-y-[160%]");
+  hamburgerBar[1].classList.toggle("hidden");
+  hamburgerBar[2].classList.toggle("-rotate-45");
+  hamburgerBar[2].classList.toggle("-translate-y-full");
 
-    // toggle hamburger list (menu) on mobile
-		hamburgerList?.classList.toggle("opacity-0");
-		hamburgerList?.classList.toggle("invisible");
-		hamburgerList?.classList.toggle("translate-x-full");
+  // toggle hamburger list (menu) on mobile
+  hamburgerList?.classList.toggle("opacity-0");
+  hamburgerList?.classList.toggle("invisible");
+  hamburgerList?.classList.toggle("translate-x-full");
 
-    // toggle backdrop blur when opening hamburger list (menu) on mobile
-    nav?.classList.toggle("backdrop-blur-md")
-    nav?.classList.toggle("bg-white/50")
-    nav?.classList.toggle("bg-white")
+  // toggle backdrop blur when opening hamburger list (menu) on mobile
+  nav?.classList.toggle("backdrop-blur-md")
+  nav?.classList.toggle("bg-white/50")
+  nav?.classList.toggle("bg-white")
 
-    // toggle scroll
-    document.body.classList.toggle("overflow-hidden")
-    document.body.classList.toggle("lg:overflow-auto")
-  })
+  // toggle scroll
+  document.body.classList.toggle("overflow-hidden")
+  document.body.classList.toggle("lg:overflow-auto")
+})
 </script>
