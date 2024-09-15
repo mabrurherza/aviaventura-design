@@ -5,7 +5,7 @@ const url = import.meta.env.STRAPI_URL;
 ---
 
 <div>
-  <img src={url + picture.data.attributes.url} alt={name} class="h-80 rounded-xl object-cover">
+  <img src={url + picture.data.attributes.url} alt={name} class="aspect-square w-full rounded-xl object-cover md:h-60 xl:h-80">
   <p class="mt-5 text-xl text-brand">{name}</p>
   <p class="mb-5 text-slate-500">{position}</p>
   <a href={linkedin} target="_blank">
