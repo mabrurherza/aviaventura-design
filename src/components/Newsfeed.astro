@@ -1,11 +1,17 @@
 ---
 interface Newsfeed {
-  title: string,
-  desc: string,
-  slug: string,
-  content: string,
-  picture: {
-    url: string
+  attributes: {
+    title: string,
+    desc: string,
+    slug: string,
+    content: string,
+    picture: {
+      data: {
+        attributes: {
+          url: string
+        }
+      }
+    }
   }
 }
 
