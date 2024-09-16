@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 import Navbar from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
+import Studycase from "../components/Studycase.astro"
 ---
 
 <Layout>
@@ -13,17 +14,7 @@ import Footer from "../components/Footer.astro"
       outcomes that have helped our airline partners thrive in the Indonesian market.</p>
   </main>
   <section class="container mx-auto space-y-5 py-24">
-    <!-- TODO: use strapi to fetch, for now just one dummy data -->
-    <div class="flex flex-col gap-12 lg:flex-row">
-      <img src="https://via.placeholder.com/1080x720" alt="" class="rounded-xl lg:w-72">
-      <div class="flex flex-col border-b pb-12">
-        <p class="font-bold uppercase tracking-widest text-slate-500">Ethiopian Airlines</p>
-        <a href="#">
-          <h2 class="mb-8 mt-3 text-3xl text-brand transition-colors duration-300 hover:text-sky-600">A Milestone Partnership for AVIAVENTURA</h2>
-          <p class="text-sky-600 transition-colors duration-300 hover:text-sky-700"><a href="#">Read case</a></p>
-        </a>
-      </div>
-    </div>
+    <Studycase />
   </section>
   <Footer />
 </Layout>

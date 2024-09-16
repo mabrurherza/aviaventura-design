@@ -1,0 +1,15 @@
+---
+const { studycase } = Astro.props;
+const { title, slug, picture, partner } = studycase.attributes;
+const url = import.meta.env.STRAPI_URL;
+---
+<div class="flex flex-col gap-12 lg:flex-row">
+  <img src={url + picture.data.attributes.url} alt={title} class="rounded-xl lg:w-72">
+  <div class="flex flex-col border-b pb-12">
+    <p class="font-bold uppercase tracking-widest text-slate-500">{partner}</p>
+    <a href={`studycase/${slug}`}>
+      <h2 class="mb-8 mt-3 text-3xl text-brand transition-colors duration-300 hover:text-sky-600">{title}</h2>
+      <p class="text-sky-600 transition-colors duration-300 hover:text-sky-700"><a href={`studycase/${slug}`}>Read case</a></p>
+    </a>
+  </div>
+</div>
