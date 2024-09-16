@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro"
 import Navbar from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
+import Newsfeeds from "../components/Newsfeeds.astro"
 ---
 
 <Layout>
@@ -10,20 +11,8 @@ import Footer from "../components/Footer.astro"
     <h1 class="text-display text-5xl">Newsfeed</h1>
     <p class="lg:w-1/2">Stay informed with the latest updates from AVIAVENTURA. Discover our latest airline partnerships, events, and industry insights, and more.</p>
   </main>
-  <!-- TODO: fetch strapi to list all the news, the same component as the one that was used in `index.astro` -->
-  <section class="container mx-auto space-y-5 py-24">
-    <div class="flex flex-col items-end gap-5">
-      <div class="flex flex-col items-end gap-12 lg:flex-row">
-        <div class="flex-1">
-          <img src="https://via.placeholder.com/1080x720" alt="Placeholder" class="rounded-xl">
-        </div>
-        <div class="flex-1 grow-[2] border-b pb-12">
-          <h3 class="text-3xl text-brand hover:text-sky-600"><a href="#">Agent Gathering at Hard Rock Cafe Jakarta</a></h3>
-          <p class="mb-12 mt-5">PT Aviaventura as GSA Ethiopian Airlines in Indonesia held a Travel Agent Gathering which was located at the Hard Rock Café Jakarta.</p>
-          <a href="#" class="text-lg text-sky-600 underline">Read more</a>
-        </div>
-      </div>
-    </div>
+  <section class="container mx-auto py-24 space-y-5">
+    <Newsfeeds />
   </section>
   <Footer />
 </Layout>

@@ -1,0 +1,15 @@
+---
+const { newsfeed } = Astro.props;
+const { title, desc, slug, picture } = newsfeed.attributes;
+const url = import.meta.env.STRAPI_URL;
+---
+<div class="flex flex-col lg:items-end gap-12 lg:flex-row">
+  <div class="flex-1">
+    <img src={url + picture.data.attributes.url} alt={title} class="rounded-xl">
+  </div>
+  <div class="flex-1 grow-[2] border-b pb-12">
+    <h3 class="text-3xl text-brand hover:text-sky-600"><a href={`news/${slug}`}>{title}</a></h3>
+    <p class="mb-5 sm:mb-12 mt-5">{desc}</p>
+    <a href={`news/${slug}`} class="text-lg text-sky-600 underline">Read more</a>
+  </div>
+</div>
