@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
 import BtnPrimary from "../components/BtnPrimary.astro"
 import Newsfeed from "../components/Newsfeed.astro"
+import SuccessStory from "../components/SuccessStory.astro"
 ---
 
 <Layout>
@@ -32,7 +33,7 @@ import Newsfeed from "../components/Newsfeed.astro"
       </div>
       <div class="flex flex-1 flex-col gap-10">
         <p class="text-base sm:text-xl">This commitment ensure to bring our strategic partnership some advantages.</p>
-        <ul class="flex flex-col divide-y-2 text-xl sm:text-2xl">
+        <ul class="flex flex-col divide-y-2 border-b-2 text-xl sm:text-2xl">
           <li class="flex gap-2 py-6">
             <img src="/img/checklist.svg" alt="Checklist" class="h-5 sm:h-8">
             Faster Response Time
@@ -50,7 +51,7 @@ import Newsfeed from "../components/Newsfeed.astro"
             Improved Efficiency
           </li>
         </ul>
-        <!-- TODO: add blog, fetched from strapi -->
+        <SuccessStory />
       </div>
     </div>
   </section>
