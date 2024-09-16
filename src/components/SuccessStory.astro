@@ -10,14 +10,14 @@ const pictureUrl = studycaseAttributes?.picture?.data?.attributes?.url;
 ---
 {
   successStory.data ?
-  <div class="flex gap-5 rounded-xl border bg-white p-3">
-    <img src={import.meta.env.STRAPI_URL + pictureUrl} alt="" class="size-32 rounded-lg object-cover">
+  <div class="flex flex-col sm:flex-row gap-5 rounded-xl border bg-white p-3">
+    <img src={import.meta.env.STRAPI_URL + pictureUrl} alt="" class="sm:size-32 rounded-lg object-cover">
     <div class="flex flex-col justify-between">
       <div>
         <p class="mb-3 font-bold uppercase tracking-widest text-slate-800">Success Story</p>
         <p><a href={`studycase/${slug}`}>{title}</a></p>
       </div>
-      <a href={`studycase/${slug}`} class="text-sky-600 transition-colors duration-300 hover:text-sky-700">Read more</a>
+      <a href={`studycase/${slug}`} class="mt-5 text-sky-600 transition-colors duration-300 hover:text-sky-700">Read more</a>
     </div>
   </div>
   : null
