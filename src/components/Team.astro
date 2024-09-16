@@ -8,16 +8,9 @@ interface Team {
   }
 }
 
-import qs from "qs";
 import TeamItem from "./TeamItem.astro"
 let url = import.meta.env.STRAPI_URL + "/api/teams";
-const query = qs.stringify({
-  populate: {
-    picture: {
-      fields: ["url"]
-    }
-  }
-})
+const query = "populate[picture][fields][0]=url"
 const teams = await fetch(url + "?" + query).then((res) => res.json()).catch((err) => err);
 ---
 <div class="mt-12 grid grid-cols-2 gap-x-5 gap-y-12 font-normal md:grid-cols-3 md:gap-12 lg:grid-cols-4 xl:grid-cols-5">

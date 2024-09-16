@@ -9,16 +9,9 @@ interface Newsfeed {
   }
 }
 
-import qs from "qs";
 import NewsfeedItem from "./NewsfeedItem.astro"
 let url = import.meta.env.STRAPI_URL + "/api/newsfeeds";
-const query = qs.stringify({
-  populate: {
-    picture: {
-      fields: ["url"]
-    }
-  }
-})
+const query = "populate[picture][fields][0]=url"
 const newsfeeds = await fetch(url + "?" + query).then((res) => res.json()).catch((err) => err);
 
 const { homepage } = Astro.props;
