@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro"
 import BtnPrimary from "../components/BtnPrimary.astro"
 import Newsfeed from "../components/Newsfeed.astro"
 import SuccessStory from "../components/SuccessStory.astro"
+import Spotlight from "../components/Spotlight.astro"
 ---
 
 <Layout>
@@ -154,19 +155,9 @@ import SuccessStory from "../components/SuccessStory.astro"
       </div>
     </div>
   </section>
-  <!-- TODO: use strapi to fetch, for now, just a dummy -->
   <section class="container mx-auto pt-32">
     <h2 class="mb-12 text-5xl text-brand">Spotlight</h2>
-    <div class="flex flex-col items-end gap-5 rounded-3xl bg-slate-100 lg:flex-row">
-      <div class="flex-1 p-5">
-        <img src="https://via.placeholder.com/1080x720" alt="Placeholder" class="rounded-3xl">
-      </div>
-      <div class="flex-1 p-5">
-        <h3 class="text-2xl text-brand lg:text-3xl">Inaugural Flight ET 629</h3>
-        <p class="mb-12 mt-5">Ethiopian Airlines, the largest Aviation Group in Africa and SKYTRAX certified Four Star Global Airline, is pleased to announce that it will launch thrice weekly flights to Jakarta, Indonesia start 21 July 2018.</p>
-        <BtnPrimary link="#" text="Read more" theme="white" />
-      </div>
-    </div>
+    <Spotlight />
   </section>
   <section class="container mx-auto py-32">
     <h2 class="mb-12 text-5xl text-brand">Newsfeed</h2>
