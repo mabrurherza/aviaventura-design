@@ -1,15 +1,35 @@
 ---
-const { newsfeed } = Astro.props;
-const { title, desc, slug, picture } = newsfeed.attributes;
-const url = import.meta.env.STRAPI_URL;
+interface Newsfeed {
+  title: string,
+  desc: string,
+  slug: string,
+  content: string,
+  picture: {
+    url: string
+  }
+}
+
+import qs from "qs";
+import NewsfeedItem from "./NewsfeedItem.astro"
+let url = import.meta.env.STRAPI_URL + "/api/newsfeeds";
+const query = qs.stringify({
+  populate: {
+    picture: {
+      fields: ["url"]
+    }
+  }
+})
+const newsfeeds = await fetch(url + "?" + query).then((res) => res.json()).catch((err) => err);
+
+const { homepage } = Astro.props;
 ---
-<div class="flex flex-col lg:items-end gap-12 lg:flex-row">
-  <div class="flex-1">
-    <img src={url + picture.data.attributes.url} alt={title} class="rounded-xl">
-  </div>
-  <div class="flex-1 grow-[2] border-b pb-12">
-    <h3 class="text-3xl text-brand hover:text-sky-600"><a href={`news/${slug}`}>{title}</a></h3>
-    <p class="mb-5 sm:mb-12 mt-5">{desc}</p>
-    <a href={`news/${slug}`} class="text-lg text-sky-600 underline">Read more</a>
-  </div>
-</div>
+
+{
+  newsfeeds.data && newsfeeds.data.length > 0
+  // if homepage is true, it will only display the first 3 news
+  ? (homepage
+    ? newsfeeds?.data.slice(0,3).map((newsfeed: Newsfeed) => <NewsfeedItem newsfeed={newsfeed} />)
+    : newsfeeds?.data?.map((newsfeed: Newsfeed) => <NewsfeedItem newsfeed={newsfeed} />)
+  )
+  : "No data found. Please make sure you inputted the correct Strapi URL"
+}

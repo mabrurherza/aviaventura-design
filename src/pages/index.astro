@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro"
 import Navbar from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
 import BtnPrimary from "../components/BtnPrimary.astro"
-import Newsfeeds from "../components/Newsfeeds.astro"
+import Newsfeed from "../components/Newsfeed.astro"
 ---
 
 <Layout>
@@ -170,7 +170,7 @@ import Newsfeeds from "../components/Newsfeeds.astro"
   <section class="container mx-auto py-32">
     <h2 class="mb-12 text-5xl text-brand">Newsfeed</h2>
     <div class="flex flex-col items-end gap-5">
-      <Newsfeeds homepage />
+      <Newsfeed homepage />
       <BtnPrimary link="/news" text="See all news" theme="light" />
     </div>
   </section>
