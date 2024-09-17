@@ -161,9 +161,11 @@ import Spotlight from "../components/Spotlight.astro"
   </section>
   <section class="container mx-auto py-32">
     <h2 class="mb-12 text-5xl text-brand">Newsfeed</h2>
-    <div class="flex flex-col items-end gap-5">
+    <div class="flex flex-col gap-5">
       <Newsfeed homepage />
-      <BtnPrimary link="/news" text="See all news" theme="light" />
+      <div class="text-right">
+        <BtnPrimary link="/news" text="See all news" theme="light" />
+      </div>
     </div>
   </section>
   <Footer />
