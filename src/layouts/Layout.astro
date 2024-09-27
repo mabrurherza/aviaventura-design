@@ -2,12 +2,15 @@
 const { headcontent = {} } = Astro.props;
 import Basehead from "../components/Basehead.astro";
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <Basehead
       title={headcontent.title}
       description={headcontent.description}
@@ -16,11 +19,16 @@ import "../styles/global.css";
       ogImage={headcontent.ogImage}
       url={headcontent.url}
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <slot>
+    <Navbar />
+    <slot />
+    <Footer />
   </body>
 </html>

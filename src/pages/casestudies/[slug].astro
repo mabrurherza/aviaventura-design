@@ -1,0 +1,97 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import PortableText from "../../components/PortableText.astro";
+
+import type { SanityDocument } from "@sanity/client";
+import { loadQuery } from "../../sanity/lib/load-query";
+
+export async function getStaticPaths() {
+  const { data: cases } = await loadQuery<SanityDocument[]>({
+    query: `*[_type == "studyCase"]`,
+  });
+
+  return cases.map(({ slug }) => {
+    return {
+      params: {
+        slug: slug.current,
+      },
+    };
+  });
+}
+
+const { params } = Astro;
+
+const { data: studycase } = (await loadQuery({
+  query: `*[_type == "studyCase" && slug.current == $slug][0]`,
+  params,
+})) as any;
+
+import { urlForImage } from "../../sanity/lib/urlForImage";
+---
+
+<Layout>
+  <Breadcrumb text="Back to Study Case" link="/casestudies" />
+  <main class="container mx-auto px-5 md:px-0 py-12">
+    <div class="flex flex-col md:flex-row items-center gap-10">
+      <h1 class="text-4xl flex-1 leading-snug text-slate-800">
+        {studycase.title}
+      </h1>
+      <div class="flex-1">
+        <img
+          src={urlForImage(studycase.thumbnail).url()}
+          alt="test"
+          class="flex-1 w-full aspect-video object-cover rounded-lg"
+        />
+      </div>
+    </div>
+    <article class="flex flex-col md:flex-row py-10 lg:py-20 gap-20 relative">
+      <ul
+        class="flex flex-col gap-10 divide-y max-w-[320px] h-fit relative md:sticky top-0 md:top-[92px]"
+      >
+        <li class="py-3">
+          <p class="text-sm font-semibold text-slate-500">Partner:</p>
+          <img
+            src={urlForImage(studycase.airlineLogo).url()}
+            alt={studycase.airline}
+            class="max-w-52"
+          />
+        </li>
+        <li class="py-3">
+          <p class="text-sm font-semibold text-slate-500 break-words">
+            Partner since:
+          </p>
+          <p class="text-base">{studycase.since}&mdash;present</p>
+        </li>
+        <li class="py-3">
+          <p class="text-sm font-semibold text-slate-500">Office:</p>
+          <p class="text-base">{studycase.office}</p>
+        </li>
+      </ul>
+      <div class="max-w-screen-sm custom-text h-fit">
+        <div class="border-b border-slate-200 pb-5">
+          <PortableText portableText={studycase.content} />
+        </div>
+        <div class="pt-5">
+          <h2 class="text-2xl text-brand font-light mb-4">Assigned Team</h2>
+          <div class="flex flex-col md:flex-row gap-4">
+            {studycase.team.map((team) => 
+            <div class="flex flex-col gap-3 max-w-[240px]">
+              <img src={urlForImage(team.foto).url()} alt=`Photo of ${team.nama}` class="rounded-md aspect-square object-cover"/>
+              <div>
+              <span class="text-lg font-brand block">{team.nama}</span>
+              <span class="text-sm text-sky-600">{team.position}</span>
+            </div>
+              <div>
+                <a href={team.linkedinUrl} target="_blank">
+                <img src="/graphic/icon/linkedin.svg" alt="Linkedin Icon" class=" size-6">
+              </a>
+              </div>
+            </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>

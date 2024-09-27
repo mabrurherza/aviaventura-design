@@ -1,0 +1,6 @@
+---
+import { sanityClient } from "sanity:client";
+
+const data = await sanityClient.fetch(`*[_type == "homepage"]`);
+const content = data[0]
+---

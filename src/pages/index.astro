@@ -1,172 +1,218 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Navbar from "../components/Navbar.astro"
-import Footer from "../components/Footer.astro"
-import BtnPrimary from "../components/BtnPrimary.astro"
-import Newsfeed from "../components/Newsfeed.astro"
-import SuccessStory from "../components/SuccessStory.astro"
-import Spotlight from "../components/Spotlight.astro"
+import Layout from "../layouts/Layout.astro";
+
+import BtnPrimary from "../components/BtnPrimary.astro";
+import SuccessStory from "../components/SuccessStory.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import NewsfeedItem from "../components/NewsfeedItem.astro";
+
+import { sanityClient } from "sanity:client";
+
+const data = await sanityClient.fetch(`*[_type == "homepage"]`);
+const content = data[0];
+
+const newsData = await sanityClient.fetch(`*[_type == "news"]`);
+
+import { urlForImage } from "../sanity/lib/urlForImage";
 ---
 
 <Layout>
-  <Navbar />
-  <main class="bg-gradient-to-b from-white to-sky-100 pt-40 lg:py-56">
-    <div class="container mx-auto flex flex-col gap-10 lg:flex-row">
-      <div class="flex flex-1 flex-col justify-center gap-10">
-        <h1 class="text-display">We Provide Dedicated GSA Teams That Fuel Sales Growth</h1>
-        <p class="text-xl">As we value exclusivity, for each airline we partner with, gets a dedicated team and focused on delivering personalized sales operations to achieve optimal growth in the Indonesian market.</p>
-        <BtnPrimary link="#" text="Partner with us now" theme="white">
-      </div>
-      <div class="relative flex flex-1 items-center justify-center">
-        <img src="/img/heroCloud.png" alt="Decorative cloud background" class="aspect-video w-full max-w-[90%] rounded-2xl object-cover md:aspect-[2/3] md:max-w-[60%]">
-        <img src="/img/heroPlane.png" alt="Decorative aeroplane image" class="absolute w-full">
+  <section>
+    <div class="bg-gradient-to-b from-white to-sky-100 py-32 lg:py-56">
+      <div class="max-w-[1440px] px-5 mx-auto flex flex-col gap-10 lg:flex-row">
+        <div class="flex flex-1 flex-col justify-center gap-10">
+          <h1 class="text-display">{content.hero.heading}</h1>
+          <p class="text-xl">{content.hero.subParagraph}</p>
+          <BtnPrimary link="#" text="Partner with us now" theme="white" />
+        </div>
+        <div class="relative flex flex-1 items-center justify-center">
+          <img
+            src="/img/heroCloud.png"
+            alt="Decorative cloud background"
+            class="aspect-video w-full max-w-[90%] rounded-2xl object-cover md:aspect-[2/3] md:max-w-[60%]"
+          />
+          <img
+            src="/img/heroPlane.png"
+            alt="Decorative aeroplane image"
+            class="absolute w-full"
+          />
+        </div>
       </div>
     </div>
-  </main>
-  <section class="bg-gradient-to-t from-white to-sky-100 pt-40 lg:py-56">
-    <div class="container mx-auto flex flex-col gap-10 lg:flex-row">
-      <div class="flex-1">
-        <p class="mb-3 inline-flex gap-2 text-xl font-bold uppercase text-sky-600">
-          <img src="/img/headerBullet.svg" alt="Header Bullet" class="h-[1em]">
-          Why dedicated team
+    <div class="bg-gradient-to-t from-white via-white to-sky-100 pt-20 md:pt-0">
+      <div class="max-w-[1440px] px-5 mx-auto flex gap-16 flex-col relative">
+        <p class="max-w-none lg:max-w-[50%]">
+          {content.how.subParagraph}
         </p>
-        <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">For Each New Partnership, We Form A New Dedicated Team to Ensure Focused Attention & Treatment</h2>
+        <p class="font-light text-4xl leading-snug text-brand">
+          {content.how.heading}
+        </p>
+        <div class="flex flex-col md:flex-row justify-between gap-5">
+          {
+            content.how.hows.map((how, index) => (
+              <div class="min-h-[240px] h-full flex flex-col justify-between bg-slate-50 rounded-lg p-4 max-w-[400px]">
+                <div>
+                  <p class="text-sky-600">0{index + 1}</p>
+                  <p class="text-2xl font-light text-brand">{how.name}</p>
+                </div>
+                <p>{how.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pt-40 lg:py-56">
+    <div class="max-w-[1440px] px-5 mx-auto flex flex-col gap-10 lg:flex-row">
+      <div class="flex-1">
+        <Eyebrow text={content.dedicatedTeam.subheading} />
+
+        <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">
+          {content.dedicatedTeam.heading}
+        </h2>
       </div>
       <div class="flex flex-1 flex-col gap-10">
-        <p class="text-base sm:text-xl">This commitment ensure to bring our strategic partnership some advantages.</p>
+        <p class="text-base sm:text-xl">
+          {content.dedicatedTeam.subParagraph}
+        </p>
         <ul class="flex flex-col divide-y-2 border-b-2 text-xl sm:text-2xl">
-          <li class="flex gap-2 py-6">
-            <img src="/img/checklist.svg" alt="Checklist" class="h-5 sm:h-8">
-            Faster Response Time
-          </li>
-          <li class="flex gap-2 py-6">
-            <img src="/img/checklist.svg" alt="Checklist" class="h-5 sm:h-8">
-            Enhanced Accountability
-          </li>
-          <li class="flex gap-2 py-6">
-            <img src="/img/checklist.svg" alt="Checklist" class="h-5 sm:h-8">
-            Stronger Relationship
-          </li>
-          <li class="flex gap-2 py-6">
-            <img src="/img/checklist.svg" alt="Checklist" class="h-5 sm:h-8">
-            Improved Efficiency
-          </li>
+          {
+            content.dedicatedTeam.advantages.map((advantage) => (
+              <li class="flex gap-2 py-6">
+                <img
+                  src="/img/checklist.svg"
+                  alt="Checklist"
+                  class="h-5 sm:h-8"
+                />
+                {advantage}
+              </li>
+            ))
+          }
         </ul>
         <SuccessStory />
       </div>
     </div>
   </section>
-  <section class="container mx-auto grid grid-cols-1 grid-rows-[repeat(3,fit-content)] gap-10 pt-32 lg:grid-cols-2 lg:grid-rows-[repeat(2,fit-content)]">
+
+  <section
+    class="max-w-[1440px] px-5 mx-auto grid grid-cols-1 grid-rows-[repeat(3,fit-content)] gap-10 pt-32 lg:grid-cols-2 lg:grid-rows-[repeat(2,fit-content)]"
+  >
     <div>
-      <p class="mb-3 inline-flex gap-2 text-xl font-bold uppercase text-sky-600">
-        <img src="/img/headerBullet.svg" alt="Header Bullet" class="h-[1em]">
-        What we deliver
-      </p>
-      <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">Full-Fledged Marketing and Sales Activities</h2>
+      <Eyebrow text={content.servicesSection.subheading} />
+
+      <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">
+        {content.servicesSection.heading}
+      </h2>
     </div>
-    <div class="flex items-end justify-end">
-      <BtnPrimary link="#" text="Ask for custom services" theme="light" />
-    </div>
+
     <div class="row-start-2 flex flex-col gap-10 lg:col-span-2 lg:flex-row">
-      <ul class="flex flex-1 flex-col divide-y-2">
-        <li class="flex items-center gap-2 text-xl font-semibold text-sky-600">
-          <img src="/img/deliverList1.svg" alt="A plane with 2 person" class="w-11">
-          Passenger Airlines
-        </li>
-        <li class="gap-2 !border-t-0 py-4">Marketing and promotion</li>
-        <li class="gap-2 py-4">Ticket sales and distribution</li>
-        <li class="gap-2 py-4">Market analysis & reporting</li>
-        <li class="gap-2 py-4">Customer service and support</li>
-        <li class="gap-2 py-4">Revenue management</li>
-      </ul>
-      <ul class="flex flex-1 flex-col divide-y-2">
-        <li class="flex items-center gap-2 text-xl font-semibold text-sky-600">
-          <img src="/img/deliverList2.svg" alt="A plane with 3 boxes" class="w-11">
-          Cargo Airlines
-        </li>
-        <li class="gap-2 !border-t-0 py-4">Cargo Sales & Distribution</li>
-        <li class="gap-2 py-4">Documentation & Compliance</li>
-        <li class="gap-2 py-4">Cargo handling & storage</li>
-        <li class="gap-2 py-4">Tracking & monitoring</li>
-        <li class="gap-2 py-4">Performance evaluation</li>
-      </ul>
-      <ul class="flex flex-1 flex-col divide-y-2">
-        <li class="flex items-center gap-2 text-xl font-semibold text-sky-600">
-          <img src="/img/deliverList3.svg" alt="A person holding a ticket" class="w-11">
-          B2C Sales Operation
-        </li>
-        <li class="flex gap-2 !border-t-0 py-4">First Service</li>
-        <li class="flex gap-2 py-4">Second Service</li>
-        <li class="flex gap-2 py-4">Third Service</li>
-      </ul>
+      {
+        content.servicesSection.services.map((service) => (
+          <div class="flex-1">
+            <div class="flex items-center gap-2 text-xl font-semibold text-sky-600">
+              <img
+                src={urlForImage(service.icon).url()}
+                alt={`Icon decoration for ${service.name} service.`}
+                class="w-11"
+              />
+              <p>{service.name}</p>
+            </div>
+            <ul class="flex flex-1 flex-col divide-y">
+              {service.activities.map((activity) => (
+                <li class="gap-2 py-4">{activity}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
     </div>
   </section>
-  <section class="container mx-auto flex flex-col gap-10 pt-32 lg:flex-row">
+
+  <section
+    class="max-w-[1440px] px-5 mx-auto flex flex-col gap-10 pt-32 md:flex-row"
+  >
     <div class="flex-1">
-      <p class="mb-3 inline-flex gap-2 text-xl font-bold uppercase text-sky-600">
-        <img src="/img/headerBullet.svg" alt="Header Bullet" class="h-[1em]">
-        Our strong networking
-      </p>
-      <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">Trusted Partnerships with Leading Travel Agents</h2>
+      <Eyebrow text={content.partnershipsSection.subheading} />
+      <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">
+        {content.partnershipsSection.heading}
+      </h2>
     </div>
     <div class="flex flex-1 flex-col gap-5">
-      <p>Our strong network of leading travel agents across Indonesia ensures broad market reach and effective distribution for our airline partners.</p>
+      <p>
+        {content.partnershipsSection.subParagraph}
+      </p>
       <p>Some of our well-established partnerships:</p>
-      <div class="grid grid-cols-2 grid-rows-2 place-items-center gap-12 lg:grid-cols-3">
-        <img src="/img/partner1.png" alt="Bayu Buana Travel Services" class="grayscale">
-        <img src="/img/partner2.png" alt="Traveloka" class="grayscale">
-        <img src="/img/partner3.png" alt="tiket.com" class="grayscale">
-        <img src="/img/partner4.png" alt="Trip.com" class="grayscale">
-        <p class="col-span-2 size-full content-center rounded-xl bg-slate-100 py-12 text-center lg:col-span-1">and more...</p>
-      </div>
-    </div>
-  </section>
-  <section class="pt-32">
-    <div class="container mx-auto flex flex-col items-end gap-10 lg:flex-row">
-      <div class="flex-1">
-        <p class="mb-3 inline-flex gap-2 text-xl font-bold uppercase text-sky-600">
-          <img src="/img/headerBullet.svg" alt="Header Bullet" class="h-[1em]">
-          Events that connect
+      <div
+        class="grid grid-cols-2 grid-rows-2 place-items-center gap-12 lg:grid-cols-3"
+      >
+        {
+          content.partnershipsSection.partners.map((partner) => (
+            <img
+              src={urlForImage(partner.agentLogo).url()}
+              alt={partner.agentName}
+              class="grayscale"
+            />
+          ))
+        }
+
+        <p
+          class="col-span-2 size-full content-center rounded-xl bg-slate-100 py-12 text-center lg:col-span-1"
+        >
+          and more...
         </p>
-        <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">Strengthening Bonds Through Strategic Events</h2>
-      </div>
-      <p class="flex-1">We organize targeted events to foster strong connections and support our airline partners’ marketing goals.</p>
-    </div>
-    <div class="mt-24 grid grid-cols-1 justify-between gap-5 px-4 text-white lg:grid-cols-2 lg:gap-16 lg:px-8 xl:grid-cols-4 xl:px-16">
-      <div class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-[url('/img/event1.png')] bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]">
-        <h3 class="z-10 text-3xl">Tour & Travel Exhibitions</h3>
-        <p class="z-10">Showcasing our airline partners to key players in the travel industry.</p>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"></div>
-      </div>
-      <div class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-[url('/img/event2.png')] bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]">
-        <h3 class="z-10 text-3xl">Partner Workshops</h3>
-        <p class="z-10">Collaborative sessions aimed at optimizing sales strategies</p>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"></div>
-      </div>
-      <div class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-[url('/img/event3.png')] bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]">
-        <h3 class="z-10 text-3xl">Exclusive Airlines Dinner</h3>
-        <p class="z-10">Intimate gatherings to discuss strategy and celebrate successes.</p>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"></div>
-      </div>
-      <div class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-[url('/img/event4.png')] bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]">
-        <h3 class="z-10 text-3xl">Aviation Insights Seminar</h3>
-        <p class="z-10">This event fosters collaboration and equips our principals with the knowledge needed to thrive in the Indonesian market.</p>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"></div>
       </div>
     </div>
   </section>
-  <section class="container mx-auto pt-32">
-    <h2 class="mb-12 text-5xl text-brand">Spotlight</h2>
-    <Spotlight />
+
+  <section class="pt-32">
+    <div
+      class="max-w-[1440px] px-5 mx-auto flex flex-col items-end gap-10 lg:flex-row"
+    >
+      <div class="flex-1">
+        <Eyebrow text={content.eventsSection.subheading} />
+        <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">
+          {content.eventsSection.heading}
+        </h2>
+      </div>
+      <p class="flex-1">
+        {content.eventsSection.subParagraph}
+      </p>
+    </div>
+    <div
+      class="mt-20 grid grid-cols-1 justify-between px-5 text-white gap-5 lg:grid-cols-2 xl:grid-cols-4"
+    >
+      {
+        content.eventsSection.events.map((e) => (
+          <div
+            class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]"
+            style={`background-image: url('${urlForImage(e.image).url()}')`}
+          >
+            <h3 class="z-10 text-3xl">{e.title}</h3>
+            <p class="z-10">{e.description}</p>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%" />
+          </div>
+        ))
+      }
+    </div>
   </section>
-  <section class="container mx-auto py-32">
+
+  <section class="max-w-[1440px] px-5 mx-auto py-32">
     <h2 class="mb-12 text-5xl text-brand">Newsfeed</h2>
-    <div class="flex flex-col gap-5">
-      <Newsfeed homepage />
+    <div class="flex flex-col gap-20">
+      {
+        newsData.map((news) => (
+          <NewsfeedItem
+            title={news.title}
+            excerpt={news.excerpt}
+            thumbnail={urlForImage(news.thumbnail)}
+            slug={news.slug.current}
+          />
+        ))
+      }
       <div class="text-right">
         <BtnPrimary link="/news" text="See all news" theme="light" />
       </div>
     </div>
   </section>
-  <Footer />
 </Layout>

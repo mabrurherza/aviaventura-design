@@ -9,8 +9,8 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sanity({
-      projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
-      dataset: import.meta.env.PUBLIC_SANITY_DATASET,
+      projectId: "jnbqgyyk",
+      dataset: "production",
       useCdn: true,
     }),
   ],

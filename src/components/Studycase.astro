@@ -26,7 +26,7 @@ interface Studycase {
   }
 }
 
-import StudycaseItem from "./StudycaseItem.astro"
+import StudycaseItem from "./CaseStudyItem.astro"
 let url = import.meta.env.STRAPI_URL + "/api/studycases";
 const query = "populate[picture][fields][0]=url"
 const studycase = await fetch(url + "?" + query).then((res) => res.json()).catch((err) => err);
