@@ -1,7 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
 import Team from "../components/Team.astro";
+
+import { sanityClient } from "sanity:client";
+const content = await sanityClient.fetch(`*[_type == "aboutPage"][0]`);
+
+import { urlForImage } from "../sanity/lib/urlForImage";
 ---
 
 <Layout>
@@ -11,30 +15,22 @@ import Team from "../components/Team.astro";
     <div class="flex-1">
       <h1 class="text-display mb-8 lg:mb-12 lg:max-w-[8ch]">Our Company</h1>
       <p>
-        Established in December 2016, AVIAVENTURA is a part of Ayuberga, one of
-        the leading and notable GSA in Indonesia.
-      </p>
-      <p>
-        With a team of experienced professionals and strong industry
-        connections, we are committed to enhancing our partners' market presence
-        and delivering exceptional service. Our goal is to be the preferred
-        partner in the aviation and tourism sectors, driving growth and success
-        for all our stakeholders.
+        {content.content.paragraph}
       </p>
     </div>
     <div class="flex-1">
       <img
-        src="/img/aboutImg.png"
-        alt=""
+        src={urlForImage(content.content.mainImage).url()}
+        alt="Team photo of AVIAVENTURA"
         class="h-72 w-full rounded-2xl object-cover lg:size-auto"
       />
     </div>
   </main>
   <section
-    class="container mx-auto flex flex-col gap-8 pt-40 lg:flex-row lg:gap-20 lg:pt-56"
+    class="container mx-auto flex flex-col gap-8 pt-40 lg:flex-row lg:gap-20 lg:py-56"
   >
     <div class="flex flex-1 flex-col gap-7 rounded-lg bg-sky-50 p-6">
-      <p class="text-7xl text-sky-600">8+</p>
+      <p class="text-7xl text-sky-600">{content.statistics.airlines}+</p>
       <p class="text-4xl">Airline partnerships with their dedicated offices</p>
       <hr />
       <a
@@ -68,36 +64,20 @@ import Team from "../components/Team.astro";
         <hr />
       </div>
       <div class="flex flex-col justify-between gap-6">
-        <p class="text-6xl text-sky-600">30+</p>
+        <p class="text-6xl text-sky-600">{content.statistics.events}+</p>
         <p class="text-2xl">Events and seminars hosted</p>
         <hr />
       </div>
       <div class="flex flex-col justify-between gap-6">
-        <p class="text-6xl text-sky-600">1 mil. +</p>
+        <p class="text-6xl text-sky-600">{content.statistics.passengers}+</p>
         <p class="text-2xl">Passengers served</p>
         <hr />
       </div>
       <div class="flex flex-col justify-between gap-6">
-        <p class="text-6xl text-sky-600">100+</p>
+        <p class="text-6xl text-sky-600">{content.statistics.partners}+</p>
         <p class="text-2xl">Travel agency partners</p>
         <hr />
       </div>
     </div>
-  </section>
-  <section class="container mx-auto py-40 lg:py-56">
-    <div
-      class="flex flex-col justify-between gap-6 xl:flex-row xl:items-center"
-    >
-      <h2 class="text-5xl text-brand">Our Team</h2>
-      <ul class="flex gap-5 overflow-x-scroll text-lg font-normal text-brand">
-        <li class="rounded-3xl bg-slate-100 px-6 py-1">Leadership</li>
-        <li class="rounded-3xl bg-slate-100 px-6 py-1">Marketing</li>
-        <li class="rounded-3xl bg-slate-100 px-6 py-1">Ticketing</li>
-        <li class="rounded-3xl bg-slate-100 px-6 py-1">Finance</li>
-        <li class="rounded-3xl bg-slate-100 px-6 py-1">HRD</li>
-        <li class="rounded-3xl bg-slate-100 px-6 py-1">Cargo</li>
-      </ul>
-    </div>
-    <Team />
   </section>
 </Layout>

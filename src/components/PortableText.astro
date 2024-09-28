@@ -1,34 +1,6 @@
 ---
 import { PortableText as PortableTextInternal } from "astro-portabletext";
 const { portableText } = Astro.props;
-
-const customStyling = {
-  block: {
-    normal: "<p class='text-red-500'><slot/></p>",
-  },
-};
-
-// Define custom components for styling the PortableText
-// const customComponents = {
-//   block: {
-//     normal:
-//       <p class="text-red-500">
-//         <slot />
-//       </p>
-
-//   },
-// };
-
-// block: {
-//     h1: /* <h1 {...attrs}><slot /></h1> */,
-//     h2: /* <h2 {...attrs}><slot /></h2> */,
-//     h3: /* <h3 {...attrs}><slot /></h3> */,
-//     h4: /* <h4 {...attrs}><slot /></h4> */,
-//     h5: /* <h5 {...attrs}><slot /></h5> */,
-//     h6: /* <h6 {...attrs}><slot /></h6> */,
-//     blockquote: /* <blockquote {...attrs}><slot /></blockquote> */,
-//     normal: /* <p {...attrs}><slot /></p> */
-//   },
 ---
 
-<PortableTextInternal value={portableText} component={customStyling} />
+<PortableTextInternal value={portableText} />
