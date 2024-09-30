@@ -1,0 +1,17 @@
+---
+import { urlForImage } from "../sanity/lib/urlForImage";
+
+const { image, title, description } = Astro.props;
+---
+
+<div
+  class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]"
+  style={`background-image: url('${urlForImage(image).url()}')`}
+>
+  <h3 class="z-10 text-3xl">{title}</h3>
+  <p class="z-10">{description}</p>
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%"
+  >
+  </div>
+</div>

@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import Hero from "../components/Homepage/Hero.astro";
+import HowSection from "../components/Homepage/HowSection.astro";
+import Carousel from "../components/Homepage/Carousel.astro";
+import CarouselItem from "../components/CarouselItem.astro";
+
 import BtnPrimary from "../components/BtnPrimary.astro";
 import SuccessStory from "../components/SuccessStory.astro";
 import Eyebrow from "../components/Eyebrow.astro";
@@ -14,83 +19,59 @@ const content = data[0];
 const newsData = await sanityClient.fetch(`*[_type == "news"]`);
 
 import { urlForImage } from "../sanity/lib/urlForImage";
+import EventCard1 from "../components/EventCard1.astro";
+import EventCard2 from "../components/EventCard2.astro";
+import WhySection from "../components/Homepage/WhySection.astro";
 ---
 
 <Layout>
-  <section>
-    <div class="bg-gradient-to-b from-white to-sky-100 py-32 lg:py-56">
-      <div class="max-w-[1440px] px-5 mx-auto flex flex-col gap-10 lg:flex-row">
-        <div class="flex flex-1 flex-col justify-center gap-10">
-          <h1 class="text-display">{content.hero.heading}</h1>
-          <p class="text-xl">{content.hero.subParagraph}</p>
-          <BtnPrimary link="#" text="Partner with us now" theme="white" />
-        </div>
-        <div class="relative flex flex-1 items-center justify-center">
-          <img
-            src="/img/heroCloud.png"
-            alt="Decorative cloud background"
-            class="aspect-video w-full max-w-[90%] rounded-2xl object-cover md:aspect-[2/3] md:max-w-[60%]"
-          />
-          <img
-            src="/img/heroPlane.png"
-            alt="Decorative aeroplane image"
-            class="absolute w-full"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="bg-gradient-to-t from-white via-white to-sky-100 pt-20 md:pt-0">
-      <div class="max-w-[1440px] px-5 mx-auto flex gap-16 flex-col relative">
-        <p class="max-w-none lg:max-w-[50%]">
-          {content.how.subParagraph}
-        </p>
-        <p class="font-light text-4xl leading-snug text-brand">
-          {content.how.heading}
-        </p>
-        <div class="flex flex-col md:flex-row justify-between gap-5">
-          {
-            content.how.hows.map((how, index) => (
-              <div class="min-h-[240px] h-full flex flex-col justify-between bg-slate-50 rounded-lg p-4 max-w-[400px]">
-                <div>
-                  <p class="text-sky-600">0{index + 1}</p>
-                  <p class="text-2xl font-light text-brand">{how.name}</p>
-                </div>
-                <p>{how.description}</p>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="pt-40 lg:py-56">
-    <div class="max-w-[1440px] px-5 mx-auto flex flex-col gap-10 lg:flex-row">
-      <div class="flex-1">
-        <Eyebrow text={content.dedicatedTeam.subheading} />
+  <Hero
+    heading={content.hero.heading}
+    subparagraph={content.hero.subParagraph}
+  />
 
-        <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">
-          {content.dedicatedTeam.heading}
-        </h2>
+  <HowSection
+    heading={content.how.heading}
+    subparagraph={content.how.subParagraph}
+    hows={content.how.hows}
+  />
+
+  <WhySection
+    eyebrow={content.dedicatedTeam.subheading}
+    heading={content.dedicatedTeam.heading}
+    subparagraph={content.dedicatedTeam.subParagraph}
+    advantages={content.dedicatedTeam.advantages}
+  />
+
+  <section class="bg-sky-100 px-5 py-32 lg:py-56">
+    <div
+      class="max-w-[1440px] p-5 bg-white rounded-xl mx-auto flex flex-col lg:flex-row gap-6"
+    >
+      <div class="flex-1 p-3 lg:p-10 flex flex-col justify-between">
+        <div>
+          <Eyebrow text="Case Studies" />
+          <h2
+            class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl mb-2"
+          >
+            How We Are Partnering Airlines Thrive
+          </h2>
+          <p class="text-base max-w-none lg:max-w-[60%] mb-5">
+            Discover how AVIAVENTURA’s dedicated teams have successfully
+            transformed airline partnerships, driving growth and improving
+            operational efficiency. Read our case studies to see real-world
+            examples of the value we bring to our principals.
+          </p>
+        </div>
+        <BtnPrimary text="Read Case Studies" link="/casestudies" />
       </div>
-      <div class="flex flex-1 flex-col gap-10">
-        <p class="text-base sm:text-xl">
-          {content.dedicatedTeam.subParagraph}
-        </p>
-        <ul class="flex flex-col divide-y-2 border-b-2 text-xl sm:text-2xl">
-          {
-            content.dedicatedTeam.advantages.map((advantage) => (
-              <li class="flex gap-2 py-6">
-                <img
-                  src="/img/checklist.svg"
-                  alt="Checklist"
-                  class="h-5 sm:h-8"
-                />
-                {advantage}
-              </li>
-            ))
-          }
-        </ul>
-        <SuccessStory />
+
+      <div class="relative flex-1 w-full overflow-hidden rounded-xl">
+        <div
+          class="bg-gradient-to-r from-white h-full w-[100px] lg:w-[200px] absolute top-0 left-0 z-20"
+        >
+        </div>
+
+        <Carousel />
       </div>
     </div>
   </section>
@@ -180,18 +161,15 @@ import { urlForImage } from "../sanity/lib/urlForImage";
       </p>
     </div>
     <div
-      class="mt-20 grid grid-cols-1 justify-between px-5 text-white gap-5 lg:grid-cols-2 xl:grid-cols-4"
+      class="mt-20 grid grid-cols-1 justify-between px-5 gap-5 lg:grid-cols-2 xl:grid-cols-4"
     >
       {
         content.eventsSection.events.map((e) => (
-          <div
-            class="relative flex aspect-square flex-1 flex-col justify-end gap-2 overflow-hidden rounded-2xl bg-cover p-5 sm:aspect-[3/2] xl:aspect-[3/4]"
-            style={`background-image: url('${urlForImage(e.image).url()}')`}
-          >
-            <h3 class="z-10 text-3xl">{e.title}</h3>
-            <p class="z-10">{e.description}</p>
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-sky-600 to-90%" />
-          </div>
+          <EventCard2
+            image={e.image}
+            title={e.title}
+            description={e.description}
+          />
         ))
       }
     </div>

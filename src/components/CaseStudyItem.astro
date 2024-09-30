@@ -16,12 +16,12 @@ const { title, excerpt, airline, thumbnail, slug } = Astro.props;
         Partnership with {airline}
       </p>
       <h3 class="text-3xl text-brand hover:text-sky-600">
-        <a href={`casestudies/${slug}`}>{title}</a>
+        <a href={`/casestudies/${slug}`}>{title}</a>
       </h3>
       <p>{excerpt}</p>
     </div>
     <a
-      href={`casestudies/${slug}`}
+      href={`/casestudies/${slug}`}
       class="text-lg text-sky-600 hover:text-sky-700 underline py-5"
       >Read more</a
     >

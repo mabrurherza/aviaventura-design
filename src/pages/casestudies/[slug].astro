@@ -31,7 +31,7 @@ import { urlForImage } from "../../sanity/lib/urlForImage";
 ---
 
 <Layout>
-  <Breadcrumb text="Back to Study Case" link="/casestudies" />
+  <Breadcrumb text="Back to Case Studies" link="/casestudies" />
   <main class="container mx-auto px-5 md:px-0 py-12">
     <div class="flex flex-col md:flex-row items-center gap-10">
       <h1 class="text-4xl flex-1 leading-snug text-slate-800">
@@ -76,8 +76,8 @@ import { urlForImage } from "../../sanity/lib/urlForImage";
           <h2 class="text-2xl text-brand font-light mb-4">Assigned Team</h2>
           <div class="flex flex-col md:flex-row gap-4">
             {studycase.team.map((team) => 
-            <div class="flex flex-col gap-3 max-w-[240px]">
-              <img src={urlForImage(team.foto).url()} alt=`Photo of ${team.nama}` class="rounded-md aspect-square object-cover"/>
+            <div class="flex flex-col gap-3 max-w-none lg:max-w-[320px]">
+              <img src={urlForImage(team.foto).url()} alt=`Photo of ${team.nama}` class="rounded-md object-top aspect-square object-cover"/>
               <div>
               <span class="text-lg font-brand block">{team.nama}</span>
               <span class="text-sm text-sky-600">{team.position}</span>

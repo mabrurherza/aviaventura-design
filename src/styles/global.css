@@ -7,7 +7,7 @@ p {
 }
 
 body {
-  @apply font-light text-slate-800;
+  @apply font-light text-slate-700;
 }
 
 .text-display {
@@ -18,3 +18,5 @@ body {
 .custom-text p {
   @apply text-slate-800 leading-loose mb-4
 }
+
+.advantages li:not(:first-child) {}
