@@ -19,4 +19,8 @@ body {
   @apply text-slate-800 leading-loose mb-4
 }
 
+.custom-text li {
+  @apply list-disc ml-5 mb-2
+}
+
 .advantages li:not(:first-child) {}

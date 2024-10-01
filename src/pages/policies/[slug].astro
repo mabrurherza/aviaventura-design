@@ -1,0 +1,91 @@
+---
+import OtherLayout from "../../layouts/OtherLayout.astro";
+import PortableText from "../../components/PortableText.astro";
+
+import type { SanityDocument } from "@sanity/client";
+import { loadQuery } from "../../sanity/lib/load-query";
+
+import { sanityClient } from "sanity:client";
+const policies = await sanityClient.fetch(`*[_type == "policies"]`);
+
+export async function getStaticPaths() {
+  const { data: cases } = await loadQuery<SanityDocument[]>({
+    query: `*[_type == "policies"]`,
+  });
+
+  return cases.map(({ slug }) => {
+    return {
+      params: {
+        slug: slug.current,
+      },
+    };
+  });
+}
+
+const { params } = Astro;
+
+const { data: policy } = (await loadQuery({
+  query: `*[_type == "policies" && slug.current == $slug][0]`,
+  params,
+})) as any;
+
+const navStyle = "text-sky-600 cursor-none";
+---
+
+<OtherLayout>
+  <header class="fixed inset-x-0 top-0 z-30 border-b border-slate-200 bg-white">
+    <div class="flex items-center p-5 gap-5">
+      <a href="/"
+        ><img
+          src="/img/logo.svg"
+          class="w-28 sm:w-32"
+          alt="aviaventura logo"
+        /></a
+      >
+
+      <a
+        href="/"
+        class="border border-sky-600 text-sky-600 rounded-full py-1 px-2 text-xs hover:bg-sky-100"
+        >Back to homepage</a
+      >
+    </div>
+  </header>
+  <div class="flex">
+    <nav
+      class="px-5 py-24 max-w-[400px] w-full bg-white border-r border-slate-200 hidden md:block"
+    >
+      <div class="sticky top-24">
+        <a href="/policies">
+          <p class="text-slate-400 tracking-wider font-medium mb-2 text-sm">
+            COMPANY POLICY
+          </p>
+        </a>
+        <ul class="flex flex-col gap-2">
+          {
+            policies.map((policy) => {
+              const isActive = policy.slug.current === params.slug;
+
+              return (
+                <a
+                  href={isActive ? null : policy.slug.current}
+                  class={`block py-2 ${isActive ? "text-sky-600 px-2 border-l-2 border-sky-600 " : "text-slate-800 hover:text-slate-600"}`}
+                >
+                  {" "}
+                  {policy.name}
+                </a>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </nav>
+    <main class="min-h-screen py-28 px-5 lg:px-10 max-w-screen-lg">
+      <h1 class="text-3xl lg:text-5xl font-light text-brand mb-10">
+        {policy.title}
+      </h1>
+      <div class="custom-text">
+        <PortableText portableText={policy.content} />
+      </div>
+    </main>
+  </div>
+</OtherLayout>
