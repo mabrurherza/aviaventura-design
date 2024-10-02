@@ -29,7 +29,7 @@ const { data: policy } = (await loadQuery({
   params,
 })) as any;
 
-const navStyle = "text-sky-600 cursor-none";
+import { urlForImage } from "../../sanity/lib/urlForImage";
 ---
 
 <OtherLayout>
@@ -79,12 +79,27 @@ const navStyle = "text-sky-600 cursor-none";
         </ul>
       </div>
     </nav>
-    <main class="min-h-screen py-28 px-5 lg:px-10 max-w-screen-lg">
-      <h1 class="text-3xl lg:text-5xl font-light text-brand mb-10">
-        {policy.title}
-      </h1>
+    <main class="min-h-screen py-28 px-5 lg:px-10 max-w-screen-lg w-full">
+      <div class="mb-10">
+        <h1 class="text-3xl lg:text-5xl font-light text-brand">
+          {policy.title}
+        </h1>
+        {
+          policy.number && (
+            <p class="text-base pt-2 text-slate-500">{policy.number}</p>
+          )
+        }
+      </div>
       <div class="custom-text">
         <PortableText portableText={policy.content} />
+        {
+          policy.signature && (
+            <img
+              src={urlForImage(policy.signature).url()}
+              class="max-w-[560px]"
+            />
+          )
+        }
       </div>
     </main>
   </div>
