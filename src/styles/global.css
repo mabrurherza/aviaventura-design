@@ -23,4 +23,8 @@ body {
   @apply list-disc ml-5 mb-2
 }
 
+.custom-text h4 {
+  @apply font-semibold text-2xl
+}
+
 .advantages li:not(:first-child) {}
