@@ -3,13 +3,15 @@ import CarouselItem from "../CarouselItem.astro";
 ---
 
 <style>
-  <style > .carousel-container {
+  .carousel-container {
     width: 100%;
+    height: 100%;
     overflow: hidden;
     position: relative;
   }
   .carousel {
     display: flex;
+    height: 100%;
     gap: 16px;
     width: fit-content; /* Double the width to accommodate two sets of images */
     animation: scroll 20s linear infinite;

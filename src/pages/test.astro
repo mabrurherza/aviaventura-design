@@ -1,6 +1,8 @@
 ---
-import { sanityClient } from "sanity:client";
-
-const data = await sanityClient.fetch(`*[_type == "homepage"]`);
-const content = data[0]
+import MovingCloud from "../components/Homepage/MovingCloud.astro";
+import Layout from "../layouts/Layout.astro";
 ---
+
+<Layout>
+  <MovingCloud />
+</Layout>

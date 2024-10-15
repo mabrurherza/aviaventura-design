@@ -1,12 +1,11 @@
 ---
-const { heading, subparagraph } = Astro.props;
-import BtnPrimary from "../BtnPrimary.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <style>
   .moving-cloud {
     position: absolute;
-    animation: moveImage 60s alternate infinite;
+    animation: moveImage 10s alternate-reverse infinite;
     height: 104%;
     top: -4px;
     width: 1400px;
@@ -14,7 +13,7 @@ import BtnPrimary from "../BtnPrimary.astro";
 
   @keyframes moveImage {
     0% {
-      left: -500px;
+      left: -50px;
     }
     100% {
       left: 0;
@@ -36,12 +35,15 @@ import BtnPrimary from "../BtnPrimary.astro";
 </style>
 
 <section>
-  <div class="bg-gradient-to-b from-white to-sky-100 pt-32 lg:py-40">
+  <div class="bg-gradient-to-b from-white to-sky-100 pt-32 pb-10 lg:py-56">
     <div class="max-w-[1440px] px-5 mx-auto flex flex-col gap-10 lg:flex-row">
       <div class="flex flex-1 flex-col justify-center gap-10">
-        <h1 class="text-display">{heading}</h1>
-        <p class="text-xl leading-relaxed">{subparagraph}</p>
-        <BtnPrimary link="#" text="Partner with us now" theme="white" />
+        <h1 class="text-display">Title</h1>
+        <p class="text-xl leading-relaxed">
+          l Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga vero,
+          cupiditate praesentium tempora voluptas dolorem voluptatum eum
+          inventore voluptatem tenetur.
+        </p>
       </div>
       <div class="relative flex flex-1 items-center justify-center">
         <div
