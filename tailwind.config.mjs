@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Onest", "Arial", "Helvetica", "sans-serif"],
+        onest: ["Onest", "Arial", "Helvetica", "sans-serif"],
+        sans: ["Inter", "Helvetica", "sans-serif"]
       },
       colors: {
         brand: "#10054c",

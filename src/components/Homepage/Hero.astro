@@ -21,7 +21,7 @@ import BtnPrimary from "../BtnPrimary.astro";
     }
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1440px) {
     .moving-cloud {
       animation: none;
       width: 100%;
@@ -36,16 +36,24 @@ import BtnPrimary from "../BtnPrimary.astro";
 </style>
 
 <section>
-  <div class="bg-gradient-to-b from-white to-sky-100 pt-32 lg:py-40">
-    <div class="max-w-[1440px] px-5 mx-auto flex flex-col gap-10 lg:flex-row">
-      <div class="flex flex-1 flex-col justify-center gap-10">
-        <h1 class="text-display">{heading}</h1>
-        <p class="text-xl leading-relaxed">{subparagraph}</p>
-        <BtnPrimary link="#" text="Partner with us now" theme="white" />
+  <div class="bg-gradient-to-b from-white to-sky-100 pt-28 lg:py-32">
+    <div
+      class="max-w-[1440px] mx-auto flex flex-col gap-10 lg:flex-row items-center"
+    >
+      <div class="flex-1 px-5">
+        <h1 class="text-display mb-2">{heading}</h1>
+        <p class="text-xl leading-relaxed mb-10">{subparagraph}</p>
+        <BtnPrimary link="/contact" text="Partner with us now" theme="white" />
       </div>
-      <div class="relative flex flex-1 items-center justify-center">
+      <div class="relative flex flex-1 items-center justify-center w-full">
+        <img
+          src="/img/CloudLong.jpg"
+          alt="Decorative cloud background"
+          class="w-full object-cover h-40 block md:hidden mt-20"
+        />
+
         <div
-          class="overflow-hidden relative aspect-video w-full md:aspect-[2/3] max-w-[90%] rounded-[32px] md:max-w-[60%] border-[10px] border-white border-opacity-70"
+          class="hidden md:block overflow-hidden relative aspect-video w-full md:aspect-[2/3] max-w-[90%] rounded-[32px] md:max-w-[60%] border-[10px] border-white border-opacity-70"
         >
           <div class="moving-cloud">
             <img
@@ -58,7 +66,7 @@ import BtnPrimary from "../BtnPrimary.astro";
         <img
           src="/img/heroPlane.png"
           alt="Decorative aeroplane image"
-          class="absolute w-full"
+          class="absolute w-full px-5 lg:px-0"
         />
       </div>
     </div>

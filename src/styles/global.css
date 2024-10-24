@@ -10,9 +10,16 @@ body {
   @apply font-light text-slate-700;
 }
 
+h1,
+h2,
+h3 {
+  @apply font-onest
+}
+
 .text-display {
   @apply text-4xl md:text-5xl xl:text-6xl font-extralight bg-gradient-to-br from-sky-600 to-brand bg-clip-text text-transparent !leading-tight;
 }
+
 
 
 .custom-text p {
@@ -28,3 +35,17 @@ body {
 }
 
 .advantages li:not(:first-child) {}
+
+
+cite {
+  @apply text-white text-lg
+}
+
+cite::before {
+  background-color: rgb(2 132 199);
+  content: "";
+  display: inline-block;
+  height: .0625rem;
+  margin-right: 1.25rem;
+  width: 2.5rem;
+}

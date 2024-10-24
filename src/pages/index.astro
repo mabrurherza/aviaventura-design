@@ -22,6 +22,11 @@ import { urlForImage } from "../sanity/lib/urlForImage";
 import EventCard1 from "../components/EventCard1.astro";
 import EventCard2 from "../components/EventCard2.astro";
 import WhySection from "../components/Homepage/WhySection.astro";
+import StrengthSection from "../components/Homepage/StrengthSection.astro";
+import StrengthSection2 from "../components/Homepage/StrengthSection2";
+import HowSection2 from "../components/Homepage/HowSection2.astro";
+import WhySection2 from "../components/Homepage/WhySection2.astro";
+import Services from "../components/Homepage/Services.astro";
 ---
 
 <Layout>
@@ -30,85 +35,39 @@ import WhySection from "../components/Homepage/WhySection.astro";
     subparagraph={content.hero.subParagraph}
   />
 
-  <HowSection
+  <section class="pt-32 bg-gradient-to-t from-white via-white to-sky-100">
+    <div class="flex flex-col w-full max-w-[1440px] m-auto px-5 pb-20">
+      <Eyebrow text="OUR EXPERTISE AND NETWORK" />
+      <p class="text-xl lg:max-w-3xl leading-relaxed">
+        At AVIAVENTURA, our GSSA approaches bring together key advantages that
+        set us apart. From our extensive network to our expertise, we are
+        committed to offering unmatched support for airline partners.
+      </p>
+    </div>
+    <StrengthSection2 client:load />
+  </section>
+
+  <Services content={content} />
+
+  <HowSection2
     heading={content.how.heading}
     subparagraph={content.how.subParagraph}
     hows={content.how.hows}
   />
 
-  <WhySection
+  <WhySection2
     eyebrow={content.dedicatedTeam.subheading}
     heading={content.dedicatedTeam.heading}
     subparagraph={content.dedicatedTeam.subParagraph}
     advantages={content.dedicatedTeam.advantages}
   />
 
-  <section class="bg-sky-100 px-5 py-32 lg:py-56">
-    <div
-      class="max-w-[1440px] p-5 bg-white rounded-xl mx-auto flex flex-col lg:flex-row lg:max-h-[600px] gap-6"
-    >
-      <div class="flex-1 p-3 lg:p-10 flex flex-col justify-between">
-        <div>
-          <Eyebrow text="Case Studies" />
-          <h2
-            class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl mb-2"
-          >
-            How We Are Partnering Airlines Thrive
-          </h2>
-          <p class="text-base max-w-none lg:max-w-[60%] mb-5">
-            Discover how AVIAVENTURA’s dedicated teams have successfully
-            transformed airline partnerships, driving growth and improving
-            operational efficiency. Read our case studies to see real-world
-            examples of the value we bring to our principals.
-          </p>
-        </div>
-        <BtnPrimary text="Read Case Studies" link="/casestudies" />
-      </div>
-
-      <div class="relative flex-1 w-full overflow-hidden rounded-xl">
-        <div
-          class="bg-gradient-to-r from-white h-full w-[100px] lg:w-[200px] absolute top-0 left-0 z-20"
-        >
-        </div>
-
-        <Carousel />
-      </div>
-    </div>
-  </section>
-
-  <section
-    class="max-w-[1440px] px-5 mx-auto grid grid-cols-1 grid-rows-[repeat(3,fit-content)] gap-10 pt-32 lg:grid-cols-2 lg:grid-rows-[repeat(2,fit-content)]"
-  >
-    <div>
-      <Eyebrow text={content.servicesSection.subheading} />
-
-      <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">
-        {content.servicesSection.heading}
-      </h2>
-    </div>
-
-    <div class="row-start-2 flex flex-col gap-10 lg:col-span-2 lg:flex-row">
-      {
-        content.servicesSection.services.map((service) => (
-          <div class="flex-1">
-            <div class="flex items-center gap-2 text-xl font-semibold text-sky-600">
-              <img
-                src={urlForImage(service.icon).url()}
-                alt={`Icon decoration for ${service.name} service.`}
-                class="w-11"
-              />
-              <p>{service.name}</p>
-            </div>
-            <ul class="flex flex-1 flex-col divide-y">
-              {service.activities.map((activity) => (
-                <li class="gap-2 py-4">{activity}</li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
-  </section>
+  <!-- <WhySection
+    eyebrow={content.dedicatedTeam.subheading}
+    heading={content.dedicatedTeam.heading}
+    subparagraph={content.dedicatedTeam.subParagraph}
+    advantages={content.dedicatedTeam.advantages}
+  /> -->
 
   <section
     class="max-w-[1440px] px-5 mx-auto flex flex-col gap-10 pt-32 md:flex-row"
@@ -152,7 +111,9 @@ import WhySection from "../components/Homepage/WhySection.astro";
     >
       <div class="flex-1">
         <Eyebrow text={content.eventsSection.subheading} />
-        <h2 class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl">
+        <h2
+          class="text-3xl !leading-tight text-brand sm:text-4xl xl:text-5xl max-w-screen-sm"
+        >
           {content.eventsSection.heading}
         </h2>
       </div>
