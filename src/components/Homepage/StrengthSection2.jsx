@@ -20,10 +20,10 @@ const expertiseData = [
     image: "/img/home-market-insight.jpg",
   },
   {
-    title: "Cargo Operations",
+    title: "Accountability and Transparency",
     description:
-      "We offer specialized cargo services, managing complex logistics and ensuring efficient operations to meet the growing demands of cargo transport.",
-    image: "/img/home-cargo.jpg",
+      "We ensures precise and timely sales operations, managing airline passenger sales in Indonesia with full transparency. We guarantee that all sales profits are deposited directly to the airlines promptly, accurately, and without delays.",
+    image: "/img/home-accountability.jpg",
   },
 ];
 
@@ -58,7 +58,7 @@ const ExpertiseSection = () => {
 
   return (
     <div>
-      <div className="max-w-[1440px] mx-auto px-5 flex flex-col lg:flex-row gap-20">
+      <div className="max-w-[1440px] mx-auto px-5 flex flex-col lg:flex-row gap-10 lg:gap-20">
         <div className="flex-1">
           {expertiseData.map((item, index) => (
             <div
@@ -66,15 +66,15 @@ const ExpertiseSection = () => {
               className={`cursor-pointer hover:bg-sky-50 py-3 lg:py-5 relative ${activeIndex === index ? "opacity-100" : "opacity-50"}`}
               onClick={() => handleClick(index)}
             >
-              <div class="flex gap-10 pb-5 h-fit">
-                <p class="text-2xl text-sky-600 pl-3">0{index + 1}</p>
+              <div className="flex gap-10 pb-5 h-fit">
+                <p className="text-2xl text-sky-600 pl-3">0{index + 1}</p>
                 <div>
                   <h3
-                    class={`text-2xl mb-1 ${activeIndex === index ? "text-sky-600" : ""}`}
+                    className={`text-2xl mb-1 ${activeIndex === index ? "text-sky-600" : ""}`}
                   >
                     {item.title}
                   </h3>
-                  <p className=""> {item.description}</p>
+                  <p> {item.description}</p>
                 </div>
               </div>
               {activeIndex === index && (
