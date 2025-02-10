@@ -12,7 +12,12 @@ import Layout from "../../layouts/Layout.astro";
           class="py-8 border-y border-slate-200 flex flex-col md:flex-row gap-10"
         >
           <div class="flex-1">
-            <p class="font-medium">Market Development Representative</p>
+            <p
+              class="job-title font-medium"
+              id="job-market-development-representative"
+            >
+              Market Development Representative
+            </p>
             <p class="text-sm">
               We're looking for a Campaign Content Writer with experience in
               campaign development, copywriting, content marketing, digital
@@ -44,8 +49,9 @@ import Layout from "../../layouts/Layout.astro";
           </ul>
 
           <div>
-            <button class="border rounded-md border-slate-500 px-4 py-2"
-              >Apply now</button
+            <button
+              class="apply-btn border rounded-md border-slate-500 px-4 py-2"
+              data-job="job-market-development-representative">Apply now</button
             >
           </div>
         </li>
@@ -58,7 +64,9 @@ import Layout from "../../layouts/Layout.astro";
           class="py-8 border-y border-slate-200 flex flex-col md:flex-row gap-10"
         >
           <div class="flex-1">
-            <p class="font-medium">Sales Representative</p>
+            <p class="job-title font-medium" id="job-sales-representative">
+              Sales Representative
+            </p>
             <p class="text-sm">
               You are responsible for expanding the Indoneisa market and
               acquiring new customers. Our innovative product for child and
@@ -95,8 +103,9 @@ import Layout from "../../layouts/Layout.astro";
           </ul>
 
           <div>
-            <button class="border rounded-md border-slate-500 px-4 py-2"
-              >Apply now</button
+            <button
+              class="apply-btn border rounded-md border-slate-500 px-4 py-2"
+              data-job="job-sales-representative">Apply now</button
             >
           </div>
         </li>
@@ -104,3 +113,24 @@ import Layout from "../../layouts/Layout.astro";
     </div>
   </main></Layout
 >
+
+<script>
+  document.querySelectorAll(".apply-btn").forEach((button) => {
+    button.addEventListener("click", function () {
+      // Get the job title using the ID stored in data-job
+      const jobId = this.getAttribute("data-job");
+      const jobTitleElement = document.getElementById(jobId);
+      const jobTitle = jobTitleElement
+        ? jobTitleElement.textContent.trim()
+        : "Unknown Position";
+
+      const email = "recruitment@example.com"; // Change to your recipient email
+      const subject = encodeURIComponent(
+        `Job application for AVIAVENTURA: ${jobTitle}`
+      );
+
+      // Open mail client
+      window.location.href = `mailto:${email}?subject=${subject}`;
+    });
+  });
+</script>

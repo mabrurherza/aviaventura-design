@@ -38,7 +38,7 @@ import { urlForImage } from "../../sanity/lib/urlForImage";
   <Breadcrumb text="Back to Newsfeed" link="/news" />
 
   <main class="py-12 max-w-screen-sm mx-auto flex flex-col gap-5 md:gap-10 p-5">
-    <h1 class="text-5xl text-brand leading-snug">{news.title}</h1>
+    <h1 class="text-3xl text-brand leading-snug">{news.title}</h1>
     <img
       src={urlForImage(news.thumbnail).url()}
       alt={news.thumbnail.caption}
