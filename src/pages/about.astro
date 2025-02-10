@@ -7,27 +7,29 @@ const content = await sanityClient.fetch(`*[_type == "aboutPage"][0]`);
 
 import { urlForImage } from "../sanity/lib/urlForImage";
 import LogoOutlineGraphic from "../components/LogoOutlineGraphic.astro";
+import AchievementStats from "../components/Homepage/AchievementStats.astro";
+import TeamItem2 from "../components/TeamItem2.astro";
+import Eyebrow from "../components/Eyebrow.astro";
 ---
 
 <Layout>
   <section class="bg-brand py-32">
     <div
-      class="container mx-auto p-5 flex flex-col-reverse lg:flex-row gap-20 items-center relative"
+      class="container mx-auto p-5 flex flex-col-reverse lg:flex-row gap-20 items-center relative justify-center"
     >
       <img
         src="/img/CEO.jpg"
         alt="CEO of Aviaventura, Yusuf Besar Jauhari"
-        class="flex-1 w-full md:max-w-[400px] rounded-xl"
+        class="flex-1 w-full md:max-w-[320px] rounded-xl"
       />
-      <blockquote class="flex-1">
+      <blockquote class="">
         <p
           class="font-light text-3xl leading-relaxed lg:text-4xl lg:leading-relaxed text-white max-w-[550px]"
         >
-          Each client is unique - we tailor our solutions to fit their specific
-          needs and personal values.
+          Driving growth, building partnerships, delivering excellence.
         </p>
         <cite class="flex items-center mt-10 text-sky-500"
-          >Yusuf Besar Jauhari, CEO</cite
+          >Yusuf Besar Jauhari, President Director</cite
         >
       </blockquote>
     </div>
@@ -35,7 +37,7 @@ import LogoOutlineGraphic from "../components/LogoOutlineGraphic.astro";
       <LogoOutlineGraphic />
     </div>
 
-    <div class="absolute right-0 bottom-0 opacity-20 hidden md:block">
+    <div class="absolute right-0 bottom-32 opacity-20 hidden md:block">
       <LogoOutlineGraphic />
     </div>
   </section>
@@ -59,57 +61,70 @@ import LogoOutlineGraphic from "../components/LogoOutlineGraphic.astro";
   </section>
 
   <section
-    class="container mx-auto flex flex-col gap-8 py-40 lg:flex-row lg:gap-20 lg:py-56"
+    class="container mx-auto hidden lg:flex flex-col gap-8 pt-10 lg:flex-row lg:gap-10 lg:pt-32 flex-wrap"
   >
-    <div class="flex flex-1 flex-col gap-7 rounded-lg bg-sky-50 p-6">
-      <p class="text-7xl text-sky-600">{content.statistics.airlines}+</p>
-      <p class="text-4xl">Airline partnerships with their dedicated offices</p>
-      <hr />
-      <a
-        href="/success-stories"
-        class="rounded-md bg-white p-4 text-2xl text-sky-600"
-      >
-        <button class="inline-flex w-full justify-between">
-          <p class="text-left">
-            See Success Stories, on how we handle our strategic partnerships
-          </p>
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              class="size-6 stroke-sky-600"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
-            </svg>
-          </div>
-        </button>
-      </a>
+    <img
+      src="/img/aviaventura-office-situation.jpg"
+      alt=""
+      class="max-w-[320px] rounded-2xl"
+    />
+    <img
+      src="/img/aviaventura-office-situation-2.jpg"
+      alt=""
+      class="max-w-[320px] rounded-2xl"
+    />
+    <img
+      src="/img/aviaventura-office-situation-3.jpg"
+      alt=""
+      class="max-w-[320px] rounded-2xl"
+    />
+  </section>
+
+  <AchievementStats />
+
+  <section class="container mx-auto py-20 lg:py-32">
+    <div class="mb-10">
+      <Eyebrow text="Leadership" />
     </div>
-    <div class="grid flex-1 gap-6 lg:grid-cols-2 lg:grid-rows-2 lg:gap-16">
-      <div class="flex flex-col justify-between gap-6">
-        <p class="text-6xl text-sky-600">7+</p>
-        <p class="text-2xl">Years of experiences</p>
-        <hr />
-      </div>
-      <div class="flex flex-col justify-between gap-6">
-        <p class="text-6xl text-sky-600">{content.statistics.events}+</p>
-        <p class="text-2xl">Events and seminars hosted</p>
-        <hr />
-      </div>
-      <div class="flex flex-col justify-between gap-6">
-        <p class="text-6xl text-sky-600">{content.statistics.passengers}+</p>
-        <p class="text-2xl">Passengers served</p>
-        <hr />
-      </div>
-      <div class="flex flex-col justify-between gap-6">
-        <p class="text-6xl text-sky-600">{content.statistics.partners}+</p>
-        <p class="text-2xl">Travel agency partners</p>
-        <hr />
-      </div>
+
+    <div
+      class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4 lg:gap-10"
+    >
+      <TeamItem2
+        src="/img/team/photo-yusuf.jpg"
+        name="Yusuf Besar Jauhari"
+        position="President Director"
+      />
+      <TeamItem2
+        src="/img/team/photo-dhani.jpg"
+        name="Dhani Pradana"
+        position="GM Finance & HRD"
+      />
+      <TeamItem2
+        src="/img/team/photo-jemmy.jpg"
+        name="Jemmy Malik"
+        position="Managing Director"
+      />
+      <TeamItem2
+        src="/img/team/photo-budi.jpg"
+        name="Budi Santoso"
+        position="Sales & Marketing Manager"
+      />
+      <TeamItem2
+        src="/img/team/photo-flora.jpg"
+        name="Flora Yulianti"
+        position="Airport Manager"
+      />
+      <TeamItem2
+        src="/img/team/photo-darwis.jpg"
+        name="Darwis Montesqi"
+        position="Operation Supervisor"
+      />
+      <TeamItem2
+        src="/img/team/photo-shalah.jpg"
+        name="Sholahudin Hamid"
+        position="Hajj Operation"
+      />
     </div>
   </section>
 </Layout>

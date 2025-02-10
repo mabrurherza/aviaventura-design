@@ -8,11 +8,11 @@ const content = data[0];
 
 <Layout>
   <main
-    class="container mx-auto grid grid-cols-1 gap-y-24 pb-24 pt-40 lg:grid-cols-2 lg:pt-56"
+    class="container mx-auto grid grid-cols-1 gap-10 gap-y-24 pb-24 pt-40 lg:grid-cols-2 lg:pt-56"
   >
     <div>
       <h1 class="text-display mb-12 text-5xl">Contact Us</h1>
-      <div class="text-lg">
+      <div class="text-lg border-b pb-6 md:pb-12 mb-12">
         <p class="mb-3 text-2xl text-sky-600">Main Office</p>
         <p class="break-words max-w-[240px]">
           {
@@ -27,38 +27,43 @@ const content = data[0];
           }
         </p>
       </div>
+
+      <ul class="flex flex-col gap-12 text-xl">
+        <li>
+          <p class="mb-3 text-2xl text-sky-600">Email</p>
+          <ul class="border-b pb-6 md:pb-12">
+            {
+              content.contactInfo.email.map((email: any) => (
+                <li>
+                  <a href={`mailto:${email}`} class="hover:text-sky-600">
+                    {email}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+        <li>
+          <p class="mb-3 text-2xl text-sky-600">Phone</p>
+
+          <ul class="border-b pb-6 md:pb-12">
+            {
+              content.contactInfo.phone.map((phone: any) => (
+                <li>
+                  <a href={`tel:+6221${phone}`} class="hover:text-sky-600">
+                    (+6221) {phone}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+      </ul>
     </div>
     <img
-      src="/img/contactImg.png"
-      alt="aviaventura buildings"
+      src="/img/mega-plaza-building-taken-by-aviaventura.jpg"
+      alt="Mega Plaza building"
       class="rounded-2xl object-cover"
     />
-    <ul class="grid gap-12 text-xl md:grid-flow-col lg:col-span-2">
-      <li>
-        <p class="mb-3 text-2xl text-sky-600">Email</p>
-        <ul class="border-b pb-6 md:pb-12">
-          {
-            content.contactInfo.email.map((email: any) => (
-              <li>
-                <a href={`mailto:${email}`}>{email}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </li>
-      <li>
-        <p class="mb-3 text-2xl text-sky-600">Phone</p>
-
-        <ul class="border-b pb-6 md:pb-12">
-          {
-            content.contactInfo.phone.map((phone: any) => (
-              <li>
-                <a href={`tel:+6221${phone}`}>(+6221) {phone}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </li>
-    </ul>
   </main>
 </Layout>

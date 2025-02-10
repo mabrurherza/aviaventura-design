@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 p {
   @apply text-base md:text-lg leading-relaxed;
 }
@@ -35,6 +36,7 @@ h3 {
 }
 
 .advantages li:not(:first-child) {}
+
 
 
 cite {

@@ -8,18 +8,55 @@ import Eyebrow from "../Eyebrow.astro";
   <div class="mb-10">
     <Eyebrow text="Aviaventura in numbers" />
   </div>
-  <div class="flex flex-col lg:flex-row gap-10">
+  <div class="flex flex-1 flex-col lg:flex-row gap-10">
     <div
       class="flex flex-1 flex-col gap-7 rounded-xl overflow-hidden bg-sky-100 p-6 relative"
     >
-      <p class="text-7xl text-sky-600 z-10">{content.statistics.airlines}+</p>
+      <p class="text-7xl text-sky-600 z-10">
+        {(content.statistics.airlines = 7)}+
+      </p>
       <p class="text-4xl z-10">
         Airline partnerships with their dedicated offices
       </p>
-      <hr />
+
+      <div class="z-10 flex flex-wrap gap-6 md:gap-10 mb-4">
+        <img
+          src="/img/client/ethiopian-airlines-logo.png"
+          alt="Ethiopian Airlines Logo"
+          class="h-16"
+        />
+        <img
+          src="/img/client/uzbekistan-aiways-logo.png"
+          alt="Ethiopian Airlines Logo"
+          class="h-16"
+        />
+        <img src="/img/client/flynas-logo.png" alt="flynas Logo" class="h-20" />
+
+        <img
+          src="/img/client/maskargo-logo.png"
+          alt="Maskargo Logo"
+          class="h-16"
+        />
+        <img
+          src="/img/client/yemenia-logo.png"
+          alt="yemenia Logo"
+          class="h-16"
+        />
+        <img
+          src="/img/client/airnorth-logo.png"
+          alt="Airnorth Logo"
+          class="h-16"
+        />
+
+        <img
+          src="/img/client/myjetexpress-airlines-logo.png"
+          alt="My Jet Express Airlines Logo"
+          class="h-16"
+        />
+      </div>
       <a
-        href="/success-stories"
-        class="rounded-md bg-white p-4 text-2xl text-sky-600 z-10"
+        href="/success-story"
+        class="rounded-md bg-white hover:bg-slate-50 p-4 text-2xl text-sky-600 z-10"
       >
         <button
           class="flex items-end xs:items-center w-full justify-between z-10"
@@ -52,10 +89,10 @@ import Eyebrow from "../Eyebrow.astro";
       <img
         src="/graphic/cloud-transparent.png"
         alt="Cloud image decoration"
-        class="absolute bottom-0 left-0 w-full z-0"
+        class="absolute bottom-0 left-0 w-full z-0 opacity-40"
       />
     </div>
-    <div class="grid flex-1 gap-6 lg:grid-cols-2 lg:grid-rows-2 lg:gap-16">
+    <div class="flex-1 grid gap-6 lg:grid-cols-2 lg:grid-rows-2 lg:gap-16">
       <div class="flex flex-col justify-between gap-6">
         <p class="text-6xl text-sky-600">7+</p>
         <p class="text-2xl">Years of experiences</p>
