@@ -12,8 +12,9 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.2.0",
+    "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.5",
-    "@sanity/astro": "^3.1.6",
+    "@sanity/astro": "^3.2.1",
     "@sanity/client": "^6.21.3",
     "@sanity/image-url": "^1.0.2",
     "@sanity/visual-editing": "^2.1.10",
