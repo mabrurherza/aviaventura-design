@@ -19,7 +19,9 @@ import Eyebrow from "../Eyebrow.astro";
         Airline partnerships with their dedicated offices
       </p>
 
-      <div class="z-10 flex flex-wrap gap-5 md:gap-6 mb-4 bg-sky-100">
+      <div
+        class="z-10 flex flex-wrap gap-5 md:gap-6 mb-4 bg-sky-100 justify-between"
+      >
         <img
           src="/img/client/ethiopian-airlines-logo.png"
           alt="Ethiopian Airlines Logo"
@@ -30,11 +32,7 @@ import Eyebrow from "../Eyebrow.astro";
           alt="Ethiopian Airlines Logo"
           class="h-16"
         />
-        <img
-          src="/img/client/starlux-logo.png"
-          alt="starlux Logo"
-          class="h-16"
-        />
+        <img src="/img/client/qanot-logo.svg" alt="qanot Logo" class="h-16" />
         <img
           src="/img/client/yemenia-logo.png"
           alt="yemenia Logo"
@@ -47,12 +45,6 @@ import Eyebrow from "../Eyebrow.astro";
         />
 
         <img
-          src="/img/client/airnorth-logo.png"
-          alt="Airnorth Logo"
-          class="h-16"
-        />
-
-        <img
           src="/img/client/myjetexpress-airlines-logo.png"
           alt="My Jet Express Airlines Logo"
           class="h-16"
@@ -61,6 +53,12 @@ import Eyebrow from "../Eyebrow.astro";
           src="/img/client/garuda-cargo.png"
           alt="Garuda Indonesia Cargo Logo"
           class="h-16 mix-blend-multiply"
+        />
+
+        <img
+          src="/img/client/citilink-logo.svg"
+          alt="Citilink Logo"
+          class="w-20"
         />
       </div>
       <a
@@ -103,7 +101,9 @@ import Eyebrow from "../Eyebrow.astro";
     </div>
     <div class="flex-1 grid gap-6 lg:grid-cols-2 lg:grid-rows-2 lg:gap-16">
       <div class="flex flex-col justify-between gap-6">
-        <p class="text-6xl text-sky-600">8+</p>
+        <p class="text-6xl text-sky-600">
+          <span id="experience-years">9</span>+
+        </p>
         <p class="text-2xl">Years of experiences</p>
         <hr />
       </div>
@@ -125,3 +125,15 @@ import Eyebrow from "../Eyebrow.astro";
     </div>
   </div>
 </section>
+
+<script>
+  const startYear = 2017;
+  const currentYear = new Date().getFullYear();
+  const yearsOfExperience = currentYear - startYear;
+
+  const displayElement = document.getElementById("experience-years");
+
+  if (displayElement) {
+    displayElement.textContent = yearsOfExperience.toString();
+  }
+</script>

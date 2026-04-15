@@ -119,7 +119,14 @@ const currentYear = new Date().getFullYear();
 
     <hr class="border-slate-300" />
     <small class="text-slate-400 text-sm sm:text-xs"
-      >&copy; {currentYear} PT AVIAVENTURA All right reserved</small
+      ><span id="copyright-year">2026</span> PT AVIAVENTURA All right reserved</small
     >
   </footer>
 </div>
+
+<script>
+  const yearElement = document.getElementById("copyright-year");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear().toString();
+  }
+</script>
